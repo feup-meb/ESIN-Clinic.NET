@@ -11,7 +11,7 @@ public class Device
     public string? Description { get; set; }
     public DateOnly AcquisitionDate { get; set; }
     public DateOnly WarrantyDate { get; set; }
-    public double Price { get; set; }
+    public double? Price { get; set; }
     public bool IsActive { get; set; }
     
     public int ManufacturerId { get; set; }
