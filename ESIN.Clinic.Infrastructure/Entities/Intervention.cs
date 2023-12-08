@@ -6,7 +6,7 @@ public class Intervention
     public DateTime ReportDate { get; set; }
     public string? Observations { get; set; }
     public DateTime? EvaluationDate { get; set; }
-    public decimal? InvoiceValue { get; set; }
+    public double? InvoiceValue { get; set; }
     public int InterventionType { get; set; }
     public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
