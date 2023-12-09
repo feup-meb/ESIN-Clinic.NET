@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-
-namespace ESIN.Clinic.Infrastructure.Entities;
+﻿namespace ESIN.Clinic.Domain.Entities;
 
 public class Device
 {

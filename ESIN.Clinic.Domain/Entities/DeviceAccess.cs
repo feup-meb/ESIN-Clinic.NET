@@ -1,4 +1,4 @@
-﻿namespace ESIN.Clinic.Infrastructure.Entities;
+﻿namespace ESIN.Clinic.Domain.Entities;
 
 public class DeviceAccess
 {

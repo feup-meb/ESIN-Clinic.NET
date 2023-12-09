@@ -1,4 +1,6 @@
-﻿namespace ESIN.Clinic.Infrastructure.Entities;
+﻿using ESIN.Clinic.Domain.Enums;
+
+namespace ESIN.Clinic.Domain.Entities;
 
 public class Intervention
 {
@@ -7,7 +9,7 @@ public class Intervention
     public string? Observations { get; set; }
     public DateTime? EvaluationDate { get; set; }
     public double? InvoiceValue { get; set; }
-    public int InterventionType { get; set; }
+    public InterventionType InterventionType { get; set; }
     public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
 
