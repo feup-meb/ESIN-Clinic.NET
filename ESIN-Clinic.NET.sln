@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Domain", "ESIN.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Infrastructure", "ESIN.Clinic.Infrastructure\ESIN.Clinic.Infrastructure.csproj", "{40D7FAA8-9D49-4D0A-ADDB-D9129AEFE94C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.WebApp", "ESIN.Clinic.WebApp\ESIN.Clinic.WebApp.csproj", "{8CDEBE78-DCC5-4906-A0EA-384DB544C43B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{40D7FAA8-9D49-4D0A-ADDB-D9129AEFE94C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40D7FAA8-9D49-4D0A-ADDB-D9129AEFE94C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40D7FAA8-9D49-4D0A-ADDB-D9129AEFE94C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CDEBE78-DCC5-4906-A0EA-384DB544C43B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CDEBE78-DCC5-4906-A0EA-384DB544C43B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CDEBE78-DCC5-4906-A0EA-384DB544C43B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CDEBE78-DCC5-4906-A0EA-384DB544C43B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
