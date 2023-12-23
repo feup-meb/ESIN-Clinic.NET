@@ -5,7 +5,7 @@ namespace ESIN.Clinic.Infrastructure.Data;
 
 public class HardCodedData : IClinicContext
 {
-    public List<HospitalUnit> GetHospitalUnits() =>
+    public List<HospitalUnit> HospitalUnits() =>
     [
         new HospitalUnit { Id = 1, Name = "Urgência" },
         new HospitalUnit { Id = 2, Name = "Unidade de Cuidados Intensivos" },
@@ -13,20 +13,20 @@ public class HardCodedData : IClinicContext
         new HospitalUnit { Id = 4, Name = "Radiologia", Room = "Sala 1" }
     ];
 
-    public List<UserType> GetUserTypes() =>
+    public List<UserType> UserTypes() =>
     [
         new UserType { Id = 1, Name = "Gestor" },
         new UserType { Id = 2, Name = "Utilizador" }
     ];
 
-    public List<Employee> GetEmployees() =>
+    public List<Employee> Employees() =>
     [
         new Employee { Id = 1, Name = "Leandro", HospitalUnitId = 1, EmployeeNumber = "up201802127", Password = "735d7507b5410ee9b3dd1ea93bb60d31df0d2b1a", UserTypeId = 1 },
         new Employee { Id = 2, Name = "Helena", HospitalUnitId = 1, EmployeeNumber = "up201405139", Password = "1c7ab2a24cdbcff89da653d7abf1ac856a8e530f", UserTypeId = 1 },
         new Employee { Id = 3, Name = "John Doe", Address = "Baker Street", HospitalUnitId = 2, EmployeeNumber = "up201812345", Password = "5156ef0b70aa95a7290689040e046e4415841155", UserTypeId = 2 }
     ];
     
-    public List<Manufacturer> GetManufacturers() =>
+    public List<Manufacturer> Manufacturers() =>
     [
         new Manufacturer { Id = 1, Name = "GE Medical", Email = "contacto@gemedical.com", PhoneNumber = "225 522 100", MobilePhoneNumber = "910 690 782", Address = "Rua dos Aflitos, 245" },
         new Manufacturer { Id = 2, Name = "Shimadzu", Email = "contacto@shimadzu.com", PhoneNumber = "225 522 101", MobilePhoneNumber = "910 690 785", Address = "Rua das Palmeiras, 1250" },
@@ -36,7 +36,7 @@ public class HardCodedData : IClinicContext
         new Manufacturer { Id = 6, Name = "Intermed", Email = "contacto@intermed.com", PhoneNumber = "225 522 105", MobilePhoneNumber = "910 690 780", Address = "Avenida dos Descobrimentos, 264" }
     ];
     
-    public List<DeviceCategory> GetDeviceCategories() =>
+    public List<DeviceCategory> DeviceCategories() =>
     [
         new DeviceCategory { Id = 1, Name = "Cirúrgico", Description = "Equipamentos utilizados em procedimentos invasivos." },
         new DeviceCategory { Id = 2, Name = "Diagnóstico", Description = "Equipamentos utilizados para auxiliar no diagnóstico médico." },
@@ -44,7 +44,7 @@ public class HardCodedData : IClinicContext
         new DeviceCategory { Id = 4, Name = "Suporte", Description = "Equipamentos utilizados no suporte à vida." }
     ];
     
-    public List<Device> GetDevices() =>
+    public List<Device> Devices() =>
     [
         new Device { Id = 1, Name = "Aparelho de anestesia", Model = "Aespire 7900", SerialNumber = "ANCU00189", Description = "Aparelho com utilização de drogas para anestesia e ventilação pulmonar.", ManufacturerId = 1, DeviceCategoryId = 1, AcquisitionDate = new DateOnly(2014, 05, 26), WarrantyDate = new DateOnly(2015, 05, 26), Price = 100500, IsActive = true, HospitalUnitId = 3 },
         new Device { Id = 2, Name = "Aparelho de Raios-X móvel", Model = "Mux-200 MobileArt EVO", SerialNumber = "0362Z16809", Description = "Aparelho móvel para aquisição de imagem.", ManufacturerId = 2, DeviceCategoryId = 2, AcquisitionDate = new DateOnly(2008, 06, 20), WarrantyDate = new DateOnly(2009, 06, 20), Price = 78000, IsActive = true, HospitalUnitId = 4 },
@@ -55,7 +55,7 @@ public class HardCodedData : IClinicContext
         new Device { Id = 7, Name = "Ventilador pulmonar", Model = "iX5", SerialNumber = "IX5-2012-09-00165", Description = "Aparelho que realiza as funções respiratórias pelo utente incapacitado.", ManufacturerId = 6, DeviceCategoryId = 4, AcquisitionDate = new DateOnly(2013, 12, 01), WarrantyDate = new DateOnly(2014, 12, 01), Price = 56000, IsActive = true, HospitalUnitId = 2 }
     ];
 
-    public List<Intervention> GetInterventions() =>
+    public List<Intervention> Interventions() =>
     [
         new Intervention
         {
@@ -72,7 +72,7 @@ public class HardCodedData : IClinicContext
         }
     ];
 
-    public List<DeviceAccess> GetDevicesAccesses() =>
+    public List<DeviceAccess> DevicesAccesses() =>
     [
         new DeviceAccess { Id = 1, EmployeeId = 1, DeviceId = 1 },
         new DeviceAccess { Id = 2, EmployeeId = 1, DeviceId = 2 },

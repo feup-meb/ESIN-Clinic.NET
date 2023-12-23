@@ -4,12 +4,12 @@ namespace ESIN.Clinic.Infrastructure;
 
 public interface IClinicContext
 {
-    public List<HospitalUnit> GetHospitalUnits();
-    public List<UserType> GetUserTypes();
-    public List<Employee> GetEmployees();
-    public List<Manufacturer> GetManufacturers();
-    public List<DeviceCategory> GetDeviceCategories();
-    public List<Device> GetDevices();
-    public List<Intervention> GetInterventions();
-    public List<DeviceAccess> GetDevicesAccesses();
+    public List<HospitalUnit> HospitalUnits();
+    public List<UserType> UserTypes();
+    public List<Employee> Employees();
+    public List<Manufacturer> Manufacturers();
+    public List<DeviceCategory> DeviceCategories();
+    public List<Device> Devices();
+    public List<Intervention> Interventions();
+    public List<DeviceAccess> DevicesAccesses();
 }
