@@ -11,7 +11,8 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<ClinicDbContext>(opt => opt.UseSqlite(configuration.GetConnectionString("Sqlite")));
+        var connectionString = configuration.GetConnectionString("DefaultConnection");
+        services.AddDbContext<ClinicDbContext>(opt => opt.UseNpgsql(connectionString));
 
         services.AddScoped<IDeviceCategoryRepository, DeviceCategoryRepository>();
         

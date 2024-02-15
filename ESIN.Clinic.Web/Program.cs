@@ -1,18 +1,20 @@
+using Microsoft.FluentUI.AspNetCore.Components;
 using ESIN.Clinic.CrossCutting;
-using ESIN.Clinic.Infrastructure.Context;
-using ESIN.Clinic.WebApp.Components;
+using ESIN.Clinic.Web.Components;
+using ESIN.Clinic.Web.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddFluentUIComponents();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
-CreateDatabase(app);
+app.CreateDatabase();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -31,10 +33,3 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
 app.Run();
-
-static void CreateDatabase(WebApplication app)
-{
-    var serviceScope = app.Services.CreateScope();
-    var dataContext = serviceScope.ServiceProvider.GetService<ClinicDbContext>();
-    dataContext?.Database.EnsureCreated();
-}
