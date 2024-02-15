@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AB0DA1DD-356
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Application", "ESIN.Clinic.Application\ESIN.Clinic.Application.csproj", "{C5D26ABC-9C6B-4440-99F2-7E7931282ECE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.ExternalContracts", "ESIN.Clinic.ExternalContracts\ESIN.Clinic.ExternalContracts.csproj", "{FBDBE31A-D084-414B-9ECB-1EBA82AE4273}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.CrossCutting", "ESIN.Clinic.CrossCutting\ESIN.Clinic.CrossCutting.csproj", "{FBDBE31A-D084-414B-9ECB-1EBA82AE4273}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
