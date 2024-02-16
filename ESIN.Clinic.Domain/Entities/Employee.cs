@@ -10,5 +10,7 @@ public class Employee
     public string Password { get; set; }
     
     public int HospitalUnitId { get; set; }
+    public HospitalUnit HospitalUnit { get; set; }
     public int UserTypeId { get; set; }
+    public UserType UserType { get; set; }
 }
