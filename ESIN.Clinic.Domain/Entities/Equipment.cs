@@ -3,9 +3,9 @@
 public class Equipment
 {
     public int Id { get; set; }
-    public string SerialNumber { get; set; }
-    public string Name { get; set; }
-    public string Model { get; set; }
+    public required string SerialNumber { get; set; }
+    public required string Name { get; set; }
+    public required string Model { get; set; }
     public string? Description { get; set; }
     public DateOnly AcquisitionDate { get; set; }
     public DateOnly WarrantyDate { get; set; }
@@ -13,6 +13,9 @@ public class Equipment
     public bool IsActive { get; set; }
     
     public int ManufacturerId { get; set; }
-    public int DeviceCategoryId { get; set; }
+    public required Manufacturer Manufacturer { get; set; }
+    public int CategoryId { get; set; }
+    public required Category Category { get; set; }
     public int HospitalUnitId { get; set; }
+    public required HospitalUnit HospitalUnit { get; set; }
 }
