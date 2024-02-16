@@ -16,8 +16,8 @@ public class ClinicDbContext : DbContext
     public DbSet<Category> Categories { get; set; }
     public DbSet<Manufacturer> Manufacturers { get; set; }
     public DbSet<EquipmentAccess> EquipmentAccesses { get; set; }
+    public DbSet<Employee> Employees { get; set; }
     // public DbSet<UserType> UserTypes { get; set; }
-    // public DbSet<Employee> Employees { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
