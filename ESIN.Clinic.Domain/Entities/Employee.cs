@@ -12,5 +12,5 @@ public class Employee
     public int HospitalUnitId { get; set; }
     public HospitalUnit HospitalUnit { get; set; }
     public int UserTypeId { get; set; }
-    public UserType UserType { get; set; }
+    public UserRole UserRole { get; set; }
 }

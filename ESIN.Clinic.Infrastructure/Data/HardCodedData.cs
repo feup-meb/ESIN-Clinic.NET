@@ -13,10 +13,10 @@ public class HardCodedData : IClinicContext
         new HospitalUnit { Id = 4, Name = "Radiologia", Room = "Sala 1" }
     ];
 
-    public List<UserType> UserTypes() =>
+    public List<UserRole> UserRoles() =>
     [
-        new UserType { Id = 1, Name = "Gestor" },
-        new UserType { Id = 2, Name = "Utilizador" }
+        new UserRole { Id = 1, Name = "Gestor" },
+        new UserRole { Id = 2, Name = "Utilizador" }
     ];
 
     public List<Employee> Employees() =>

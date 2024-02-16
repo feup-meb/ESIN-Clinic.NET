@@ -1,7 +1,7 @@
 ﻿namespace ESIN.Clinic.Domain.Entities;
 
-public class UserType
+public class UserRole
 {
     public int Id { get; set; }
-    public string Name { get; set; }
+    public required string Name { get; set; }
 }
