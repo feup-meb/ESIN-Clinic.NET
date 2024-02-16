@@ -14,5 +14,7 @@ public class Intervention
     public DateTime? EndDate { get; set; }
 
     public int EmployeeId { get; set; }
-    public int DeviceId { get; set; }
+    public Employee Employee { get; set; }
+    public int EquipmentId { get; set; }
+    public Equipment Equipment { get; set; }
 }
