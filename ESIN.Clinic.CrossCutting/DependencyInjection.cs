@@ -13,16 +13,9 @@ public static class DependencyInjection
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
         services.AddDbContext<ClinicDbContext>(opt => opt.UseNpgsql(connectionString));
-
-        services.AddHostedService<MigratorHostedService>();
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         
-        services.AddScoped<IHospitalUnitRepository, HospitalUnitRepository>();
-        services.AddScoped<ICategoryRepository, CategoryRepository>();
-        services.AddScoped<IManufacturerRepository, ManufacturerRepository>();
-        services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-        services.AddScoped<IEquipmentRepository, EquipmentRepository>();
-        services.AddScoped<IInterventionRepository, InterventionRepository>();
-        services.AddScoped<IEquipmentAccessRepository, EquipmentAccessRepository>();
+        services.AddHostedService<MigratorHostedService>();
         
         return services;
     }

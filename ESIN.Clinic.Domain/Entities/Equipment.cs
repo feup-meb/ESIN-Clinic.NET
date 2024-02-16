@@ -7,8 +7,8 @@ public class Equipment
     public required string Name { get; set; }
     public required string Model { get; set; }
     public string? Description { get; set; }
-    public DateOnly AcquisitionDate { get; set; }
-    public DateOnly WarrantyDate { get; set; }
+    public required DateTime AcquisitionDate { get; set; }
+    public required DateTime WarrantyDate { get; set; }
     public double? Price { get; set; }
     public bool IsActive { get; set; }
     
