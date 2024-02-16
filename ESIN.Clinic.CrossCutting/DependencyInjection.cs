@@ -14,7 +14,28 @@ public static class DependencyInjection
         var connectionString = configuration.GetConnectionString("DefaultConnection");
         services.AddDbContext<ClinicDbContext>(opt => opt.UseNpgsql(connectionString));
 
+        services.AddHostedService<MigratorHostedService>();
+        
+        services.AddScoped<IHospitalUnitRepository, HospitalUnitRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<IManufacturerRepository, ManufacturerRepository>();
+        services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        services.AddScoped<IEquipmentRepository, EquipmentRepository>();
+        services.AddScoped<IInterventionRepository, InterventionRepository>();
+        services.AddScoped<IEquipmentAccessRepository, EquipmentAccessRepository>();
+        
+        return services;
+    }
+    
+    public static IServiceCollection AddRepositoryServices(this IServiceCollection services)
+    {
+        services.AddScoped<IHospitalUnitRepository, HospitalUnitRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<IManufacturerRepository, ManufacturerRepository>();
+        services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        services.AddScoped<IEquipmentRepository, EquipmentRepository>();
+        services.AddScoped<IInterventionRepository, InterventionRepository>();
+        services.AddScoped<IEquipmentAccessRepository, EquipmentAccessRepository>();
         
         return services;
     }

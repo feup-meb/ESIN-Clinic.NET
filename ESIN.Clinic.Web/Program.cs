@@ -1,21 +1,20 @@
 using Microsoft.FluentUI.AspNetCore.Components;
 using ESIN.Clinic.CrossCutting;
 using ESIN.Clinic.Web.Components;
-using ESIN.Clinic.Web.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
 builder.Services.AddFluentUIComponents();
 
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services
+    .AddInfrastructure(builder.Configuration)
+    .AddRepositoryServices();
 
 var app = builder.Build();
-
-// TODO: Run migration
-// app.CreateDatabase();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
