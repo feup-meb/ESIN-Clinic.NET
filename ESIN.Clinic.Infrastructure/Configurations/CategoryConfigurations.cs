@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ESIN.Clinic.Infrastructure.Configurations;
 
-public class DeviceCategoryConfigurations : IEntityTypeConfiguration<Category>
+public class CategoryConfigurations : IEntityTypeConfiguration<Category>
 {
     public void Configure(EntityTypeBuilder<Category> builder)
     {
