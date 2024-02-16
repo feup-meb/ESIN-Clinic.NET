@@ -11,7 +11,7 @@ public class ClinicDbContext : DbContext
     }
 
     public DbSet<Intervention> Interventions { get; set; }
-    // public DbSet<HospitalUnit> HospitalUnits { get; set; }
+    public DbSet<HospitalUnit> HospitalUnits { get; set; }
     // public DbSet<Equipment> Equipments { get; set; }
     public DbSet<Category> Categories { get; set; }
     // public DbSet<Manufacturer> Manufacturers { get; set; }
