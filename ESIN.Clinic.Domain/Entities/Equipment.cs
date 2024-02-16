@@ -1,6 +1,6 @@
 ﻿namespace ESIN.Clinic.Domain.Entities;
 
-public class Device
+public class Equipment
 {
     public int Id { get; set; }
     public string SerialNumber { get; set; }

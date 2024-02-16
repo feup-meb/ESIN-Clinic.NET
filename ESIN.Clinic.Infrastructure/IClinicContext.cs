@@ -8,8 +8,8 @@ public interface IClinicContext
     public List<UserType> UserTypes();
     public List<Employee> Employees();
     public List<Manufacturer> Manufacturers();
-    public List<DeviceCategory> DeviceCategories();
-    public List<Device> Devices();
+    public List<Category> DeviceCategories();
+    public List<Equipment> Devices();
     public List<Intervention> Interventions();
-    public List<DeviceAccess> DevicesAccesses();
+    public List<EquipmentAccess> DevicesAccesses();
 }

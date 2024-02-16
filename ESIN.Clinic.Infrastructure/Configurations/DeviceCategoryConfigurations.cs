@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ESIN.Clinic.Infrastructure.Configurations;
 
-public class DeviceCategoryConfigurations : IEntityTypeConfiguration<DeviceCategory>
+public class DeviceCategoryConfigurations : IEntityTypeConfiguration<Category>
 {
-    public void Configure(EntityTypeBuilder<DeviceCategory> builder)
+    public void Configure(EntityTypeBuilder<Category> builder)
     {
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Name).IsRequired();

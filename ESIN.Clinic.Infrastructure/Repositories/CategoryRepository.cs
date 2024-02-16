@@ -5,18 +5,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ESIN.Clinic.Infrastructure.Repositories;
 
-public class DeviceCategoryRepository(ClinicDbContext dbContext) : IDeviceCategoryRepository
+public class CategoryRepository(ClinicDbContext dbContext) : ICategoryRepository
 {
-    public async Task<IEnumerable<DeviceCategory>> GetDeviceCategories()
+    public async Task<IEnumerable<Category>> GetDeviceCategories()
     {
-        List<DeviceCategory> deviceCategories = await dbContext.DeviceCategories.ToListAsync();
+        List<Category> deviceCategories = await dbContext.Categories.ToListAsync();
         
         return deviceCategories;
     }
 
-    public async Task<DeviceCategory?> GetDeviceCategoryById(int id)
+    public async Task<Category?> GetDeviceCategoryById(int id)
     {
-        DeviceCategory? deviceCategory = await dbContext.DeviceCategories
+        Category? deviceCategory = await dbContext.Categories
             .FirstOrDefaultAsync(x => x.Id == id);
         
         if (deviceCategory == default)
@@ -25,31 +25,31 @@ public class DeviceCategoryRepository(ClinicDbContext dbContext) : IDeviceCatego
         return deviceCategory;
     }
 
-    public async Task<DeviceCategory> AddDeviceCategory(DeviceCategory deviceCategory)
+    public async Task<Category> AddDeviceCategory(Category category)
     {
-        dbContext.DeviceCategories.Add(deviceCategory);
+        dbContext.Categories.Add(category);
         await dbContext.SaveChangesAsync();
-        return deviceCategory;
+        return category;
     }
 
-    public async Task UpdateDeviceCategory(DeviceCategory deviceCategory)
+    public async Task UpdateDeviceCategory(Category category)
     {
-        if (deviceCategory == null)
+        if (category == null)
             throw new InvalidOperationException("Invalid data...");
 
-        dbContext.Entry(deviceCategory).State = EntityState.Modified;
+        dbContext.Entry(category).State = EntityState.Modified;
         await dbContext.SaveChangesAsync();
     }
 
     public async Task DeleteDeviceCategoryById(int id)
     {
-        DeviceCategory? deviceCategory = await dbContext.DeviceCategories
+        Category? deviceCategory = await dbContext.Categories
             .FirstOrDefaultAsync(x => x.Id == id);
         
         if (deviceCategory == null)
             throw new InvalidOperationException("Invalid data...");
 
-        dbContext.DeviceCategories.Remove(deviceCategory);
+        dbContext.Categories.Remove(deviceCategory);
         await dbContext.SaveChangesAsync();
     }
 }

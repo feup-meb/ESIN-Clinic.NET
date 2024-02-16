@@ -1,6 +1,6 @@
 ﻿namespace ESIN.Clinic.Domain.Entities;
 
-public class DeviceAccess
+public class EquipmentAccess
 {
     public int Id { get; set; }
 

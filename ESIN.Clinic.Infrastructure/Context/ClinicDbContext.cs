@@ -10,7 +10,7 @@ public class ClinicDbContext : DbContext
     {
     }
 
-    public DbSet<DeviceCategory> DeviceCategories { get; set; }
+    public DbSet<Category> Categories { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -14,7 +14,7 @@ public static class DependencyInjection
         var connectionString = configuration.GetConnectionString("DefaultConnection");
         services.AddDbContext<ClinicDbContext>(opt => opt.UseNpgsql(connectionString));
 
-        services.AddScoped<IDeviceCategoryRepository, DeviceCategoryRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
         
         return services;
     }
