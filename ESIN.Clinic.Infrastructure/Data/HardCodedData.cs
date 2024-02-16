@@ -36,7 +36,7 @@ public class HardCodedData : IClinicContext
         new Manufacturer { Id = 6, Name = "Intermed", Email = "contacto@intermed.com", PhoneNumber = "225 522 105", MobilePhoneNumber = "910 690 780", Address = "Avenida dos Descobrimentos, 264" }
     ];
     
-    public List<Category> DeviceCategories() =>
+    public List<Category> Categories() =>
     [
         new Category { Id = 1, Name = "Cirúrgico", Description = "Equipamentos utilizados em procedimentos invasivos." },
         new Category { Id = 2, Name = "Diagnóstico", Description = "Equipamentos utilizados para auxiliar no diagnóstico médico." },
@@ -44,15 +44,15 @@ public class HardCodedData : IClinicContext
         new Category { Id = 4, Name = "Suporte", Description = "Equipamentos utilizados no suporte à vida." }
     ];
     
-    public List<Equipment> Devices() =>
+    public List<Equipment> Equipments() =>
     [
-        new Equipment { Id = 1, Name = "Aparelho de anestesia", Model = "Aespire 7900", SerialNumber = "ANCU00189", Description = "Aparelho com utilização de drogas para anestesia e ventilação pulmonar.", ManufacturerId = 1, DeviceCategoryId = 1, AcquisitionDate = new DateOnly(2014, 05, 26), WarrantyDate = new DateOnly(2015, 05, 26), Price = 100500, IsActive = true, HospitalUnitId = 3 },
-        new Equipment { Id = 2, Name = "Aparelho de Raios-X móvel", Model = "Mux-200 MobileArt EVO", SerialNumber = "0362Z16809", Description = "Aparelho móvel para aquisição de imagem.", ManufacturerId = 2, DeviceCategoryId = 2, AcquisitionDate = new DateOnly(2008, 06, 20), WarrantyDate = new DateOnly(2009, 06, 20), Price = 78000, IsActive = true, HospitalUnitId = 4 },
-        new Equipment { Id = 3, Name = "Monitor multiparâmetro", Model = "Cardiocap/5", SerialNumber = "6169749", Description = "Monitor de sinais vitais para anestesia GE.", ManufacturerId = 1, DeviceCategoryId = 3, AcquisitionDate = new DateOnly(2007, 02, 12), WarrantyDate = new DateOnly(2008, 02, 12), Price = 20000, IsActive = true, HospitalUnitId = 3 },
-        new Equipment { Id = 4, Name = "Monitor multiparâmetro", Model = "Intellivue MP 20", SerialNumber = "DE 6222577", Description = "Monitor de sinais vitais com eletro cardiógrafo.", ManufacturerId = 3, DeviceCategoryId = 3, AcquisitionDate = new DateOnly(2007, 02, 01), WarrantyDate = new DateOnly(2008, 02, 01), Price = 10000, IsActive = false, HospitalUnitId = 2 },
-        new Equipment { Id = 5, Name = "Monitor multiparâmetro", Model = "BSM-3763", SerialNumber = "2826", Description = "Monitor de sinais vitais para leitos de UCI.", ManufacturerId = 4, DeviceCategoryId = 3, AcquisitionDate = new DateOnly(2015, 12, 18), WarrantyDate = new DateOnly(2016, 12, 18), Price = 25000, IsActive = true, HospitalUnitId = 2 },
-        new Equipment { Id = 6, Name = "Monitor multiparâmetro", Model = "Vita 600", SerialNumber = "V600600020", Description = "Monitor de saturação e frequência cardíaca.", ManufacturerId = 5, DeviceCategoryId = 3, AcquisitionDate = new DateOnly(2016, 01, 21), WarrantyDate = new DateOnly(2017, 01, 21), Price = 8000, IsActive = true, HospitalUnitId = 1 },
-        new Equipment { Id = 7, Name = "Ventilador pulmonar", Model = "iX5", SerialNumber = "IX5-2012-09-00165", Description = "Aparelho que realiza as funções respiratórias pelo utente incapacitado.", ManufacturerId = 6, DeviceCategoryId = 4, AcquisitionDate = new DateOnly(2013, 12, 01), WarrantyDate = new DateOnly(2014, 12, 01), Price = 56000, IsActive = true, HospitalUnitId = 2 }
+        new Equipment { Id = 1, Name = "Aparelho de anestesia", Model = "Aespire 7900", SerialNumber = "ANCU00189", Description = "Aparelho com utilização de drogas para anestesia e ventilação pulmonar.", ManufacturerId = 1, Manufacturer = Manufacturers().Find(x => x.Id == 1)!, CategoryId = 1, Category = Categories().Find(x => x.Id == 1)!, AcquisitionDate = new DateOnly(2014, 05, 26), WarrantyDate = new DateOnly(2015, 05, 26), Price = 100500, IsActive = true, HospitalUnitId = 3, HospitalUnit = HospitalUnits().Find(x => x.Id == 3)! },
+        new Equipment { Id = 2, Name = "Aparelho de Raios-X móvel", Model = "Mux-200 MobileArt EVO", SerialNumber = "0362Z16809", Description = "Aparelho móvel para aquisição de imagem.", ManufacturerId = 2, Manufacturer = Manufacturers().Find(x => x.Id == 2)!, CategoryId = 2, Category = Categories().Find(x => x.Id == 2)!, AcquisitionDate = new DateOnly(2008, 06, 20), WarrantyDate = new DateOnly(2009, 06, 20), Price = 78000, IsActive = true, HospitalUnitId = 4, HospitalUnit = HospitalUnits().Find(x => x.Id == 4)! },
+        new Equipment { Id = 3, Name = "Monitor multiparâmetro", Model = "Cardiocap/5", SerialNumber = "6169749", Description = "Monitor de sinais vitais para anestesia GE.", ManufacturerId = 1, Manufacturer = Manufacturers().Find(x => x.Id == 1)!, CategoryId = 3, Category = Categories().Find(x => x.Id == 3)!, AcquisitionDate = new DateOnly(2007, 02, 12), WarrantyDate = new DateOnly(2008, 02, 12), Price = 20000, IsActive = true, HospitalUnitId = 3, HospitalUnit = HospitalUnits().Find(x => x.Id == 3)! },
+        new Equipment { Id = 4, Name = "Monitor multiparâmetro", Model = "Intellivue MP 20", SerialNumber = "DE 6222577", Description = "Monitor de sinais vitais com eletro cardiógrafo.", ManufacturerId = 3, Manufacturer = Manufacturers().Find(x => x.Id == 3)!, CategoryId = 3, Category = Categories().Find(x => x.Id == 3)!, AcquisitionDate = new DateOnly(2007, 02, 01), WarrantyDate = new DateOnly(2008, 02, 01), Price = 10000, IsActive = false, HospitalUnitId = 2, HospitalUnit = HospitalUnits().Find(x => x.Id == 2)! },
+        new Equipment { Id = 5, Name = "Monitor multiparâmetro", Model = "BSM-3763", SerialNumber = "2826", Description = "Monitor de sinais vitais para leitos de UCI.", ManufacturerId = 4, Manufacturer = Manufacturers().Find(x => x.Id == 4)!, CategoryId = 3, Category = Categories().Find(x => x.Id == 3)!, AcquisitionDate = new DateOnly(2015, 12, 18), WarrantyDate = new DateOnly(2016, 12, 18), Price = 25000, IsActive = true, HospitalUnitId = 2, HospitalUnit = HospitalUnits().Find(x => x.Id == 2)! },
+        new Equipment { Id = 6, Name = "Monitor multiparâmetro", Model = "Vita 600", SerialNumber = "V600600020", Description = "Monitor de saturação e frequência cardíaca.", ManufacturerId = 5, Manufacturer = Manufacturers().Find(x => x.Id == 5)!, CategoryId = 3, Category = Categories().Find(x => x.Id == 3)!, AcquisitionDate = new DateOnly(2016, 01, 21), WarrantyDate = new DateOnly(2017, 01, 21), Price = 8000, IsActive = true, HospitalUnitId = 1, HospitalUnit = HospitalUnits().Find(x => x.Id == 1)! },
+        new Equipment { Id = 7, Name = "Ventilador pulmonar", Model = "iX5", SerialNumber = "IX5-2012-09-00165", Description = "Aparelho que realiza as funções respiratórias pelo utente incapacitado.", ManufacturerId = 6, Manufacturer = Manufacturers().Find(x => x.Id == 6)!, CategoryId = 4, Category = Categories().Find(x => x.Id == 4)!, AcquisitionDate = new DateOnly(2013, 12, 01), WarrantyDate = new DateOnly(2014, 12, 01), Price = 56000, IsActive = true, HospitalUnitId = 2, HospitalUnit = HospitalUnits().Find(x => x.Id == 2)! }
     ];
 
     public List<Intervention> Interventions() =>
@@ -68,17 +68,17 @@ public class HardCodedData : IClinicContext
             StartDate = new DateTime(2018, 01, 10),
             EndDate = new DateTime(2018, 01, 23), 
             EmployeeId = 3, 
-            DeviceId = 4
+            EquipmentId = 4
         }
     ];
 
     public List<EquipmentAccess> DevicesAccesses() =>
     [
-        new EquipmentAccess { Id = 1, EmployeeId = 1, DeviceId = 1 },
-        new EquipmentAccess { Id = 2, EmployeeId = 1, DeviceId = 2 },
-        new EquipmentAccess { Id = 3, EmployeeId = 2, DeviceId = 3 },
-        new EquipmentAccess { Id = 4, EmployeeId = 2, DeviceId = 4 },
-        new EquipmentAccess { Id = 5, EmployeeId = 3, DeviceId = 1 },
-        new EquipmentAccess { Id = 6, EmployeeId = 3, DeviceId = 3 }
+        new EquipmentAccess { Id = 1, EmployeeId = 1, Employee = Employees().Find(x => x.Id == 1)!, EquipmentId = 1, Equipment = Equipments().Find(x => x.Id == 1)! },
+        new EquipmentAccess { Id = 2, EmployeeId = 1, Employee = Employees().Find(x => x.Id == 1)!, EquipmentId = 2, Equipment = Equipments().Find(x => x.Id == 2)! },
+        new EquipmentAccess { Id = 3, EmployeeId = 2, Employee = Employees().Find(x => x.Id == 2)!, EquipmentId = 3, Equipment = Equipments().Find(x => x.Id == 3)! },
+        new EquipmentAccess { Id = 4, EmployeeId = 2, Employee = Employees().Find(x => x.Id == 2)!, EquipmentId = 4, Equipment = Equipments().Find(x => x.Id == 4)! },
+        new EquipmentAccess { Id = 5, EmployeeId = 3, Employee = Employees().Find(x => x.Id == 3)!, EquipmentId = 1, Equipment = Equipments().Find(x => x.Id == 1)! },
+        new EquipmentAccess { Id = 6, EmployeeId = 3, Employee = Employees().Find(x => x.Id == 3)!, EquipmentId = 3, Equipment = Equipments().Find(x => x.Id == 3)! }
     ];
 }
