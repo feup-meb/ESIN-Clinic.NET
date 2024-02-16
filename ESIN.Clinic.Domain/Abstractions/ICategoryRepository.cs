@@ -4,9 +4,9 @@ namespace ESIN.Clinic.Domain.Abstractions;
 
 public interface ICategoryRepository
 {
-    Task<IEnumerable<Category>> GetDeviceCategories();
-    Task<Category?> GetDeviceCategoryById(int id);
-    Task<Category> AddDeviceCategory(Category category);
-    Task UpdateDeviceCategory(Category category);
-    Task DeleteDeviceCategoryById(int id);
+    Task<IEnumerable<Category>> GetCategories();
+    Task<Category?> GetCategoryById(int id);
+    Task<Category> AddCategory(Category category);
+    Task UpdateCategory(Category category);
+    Task DeleteCategoryById(int id);
 }

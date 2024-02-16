@@ -7,32 +7,32 @@ namespace ESIN.Clinic.Infrastructure.Repositories;
 
 public class CategoryRepository(ClinicDbContext dbContext) : ICategoryRepository
 {
-    public async Task<IEnumerable<Category>> GetDeviceCategories()
+    public async Task<IEnumerable<Category>> GetCategories()
     {
-        List<Category> deviceCategories = await dbContext.Categories.ToListAsync();
+        List<Category> categories = await dbContext.Categories.ToListAsync();
         
-        return deviceCategories;
+        return categories;
     }
 
-    public async Task<Category?> GetDeviceCategoryById(int id)
+    public async Task<Category?> GetCategoryById(int id)
     {
-        Category? deviceCategory = await dbContext.Categories
+        Category? category = await dbContext.Categories
             .FirstOrDefaultAsync(x => x.Id == id);
         
-        if (deviceCategory == default)
+        if (category == default)
             throw new InvalidOperationException("Invalid data...");
         
-        return deviceCategory;
+        return category;
     }
 
-    public async Task<Category> AddDeviceCategory(Category category)
+    public async Task<Category> AddCategory(Category category)
     {
         dbContext.Categories.Add(category);
         await dbContext.SaveChangesAsync();
         return category;
     }
 
-    public async Task UpdateDeviceCategory(Category category)
+    public async Task UpdateCategory(Category category)
     {
         if (category == null)
             throw new InvalidOperationException("Invalid data...");
@@ -41,15 +41,15 @@ public class CategoryRepository(ClinicDbContext dbContext) : ICategoryRepository
         await dbContext.SaveChangesAsync();
     }
 
-    public async Task DeleteDeviceCategoryById(int id)
+    public async Task DeleteCategoryById(int id)
     {
-        Category? deviceCategory = await dbContext.Categories
+        Category? category = await dbContext.Categories
             .FirstOrDefaultAsync(x => x.Id == id);
         
-        if (deviceCategory == null)
+        if (category == null)
             throw new InvalidOperationException("Invalid data...");
 
-        dbContext.Categories.Remove(deviceCategory);
+        dbContext.Categories.Remove(category);
         await dbContext.SaveChangesAsync();
     }
 }
