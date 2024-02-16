@@ -10,6 +10,7 @@ public class EquipmentConfigurations : IEntityTypeConfiguration<Equipment>
     {
         builder.HasKey(x => x.Id);
         builder.Property(x => x.SerialNumber).IsRequired();
+        builder.HasIndex(x => x.SerialNumber).IsUnique();
         builder.Property(x => x.Name).IsRequired();
         builder.Property(x => x.Model).IsRequired();
         builder.Property(x => x.Description);
