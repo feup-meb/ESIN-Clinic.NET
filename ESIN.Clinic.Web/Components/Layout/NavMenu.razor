@@ -40,8 +40,8 @@
             @* <FluentNavLink Href="categories" Icon="@(new Icons.Regular.Size20.Apps())" IconColor="Color.Accent">Equipment Categories</FluentNavLink> *@
             <FluentNavGroup Title="Equipment Categories" Icon="@(new Icons.Regular.Size20.Apps())">
                 <ChildContent>
-                    <FluentNavLink Href="categories" Icon="@(new Icons.Regular.Size20.Apps())" IconColor="Color.Accent">List Equipment Categories</FluentNavLink>
-                    <FluentNavLink Href="categories" Icon="@(new Icons.Regular.Size20.Apps())" IconColor="Color.Accent">Add Equipment Category</FluentNavLink>
+                    <FluentNavLink Match="NavLinkMatch.All" Href="categories" Icon="@(new Icons.Regular.Size20.Apps())" IconColor="Color.Accent">List Equipment Categories</FluentNavLink>
+                    <FluentNavLink Match="NavLinkMatch.All" Href="category/detail" Icon="@(new Icons.Regular.Size20.Apps())" IconColor="Color.Accent">Add Equipment Category</FluentNavLink>
                 </ChildContent>
             </FluentNavGroup>
             

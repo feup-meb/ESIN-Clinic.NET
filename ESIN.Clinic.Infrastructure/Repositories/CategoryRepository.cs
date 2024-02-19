@@ -14,7 +14,7 @@ public class CategoryRepository(ClinicDbContext dbContext) : ICategoryRepository
         return categories;
     }
 
-    public async Task<Category?> GetCategoryByIdAsync(int id)
+    public async Task<Category?> GetCategoryById(int id)
     {
         Category? category = await dbContext.Categories
             .FirstOrDefaultAsync(x => x.Id == id);

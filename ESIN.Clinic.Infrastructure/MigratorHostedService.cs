@@ -18,8 +18,8 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
 
         // Get the DbContext instance
         var clinicDbCtx = scope.ServiceProvider.GetRequiredService<ClinicDbContext>();
-        await ApplyMigrations(clinicDbCtx, cancellationToken);
-        await SeedClinicDatabase(clinicDbCtx, cancellationToken);
+        // await ApplyMigrations(clinicDbCtx, cancellationToken);
+        // await SeedClinicDatabase(clinicDbCtx, cancellationToken);
     }
 
     private async Task ApplyMigrations(ClinicDbContext dbCtx, CancellationToken cancellationToken)
