@@ -1,14 +1,17 @@
+using ESIN.Clinic.Application;
+using ESIN.Clinic.Infrastructure;
 using Microsoft.FluentUI.AspNetCore.Components;
-using ESIN.Clinic.CrossCutting;
 using ESIN.Clinic.Web.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorComponents()
+builder.Services
+    .AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddFluentUIComponents();
+builder.Services
+    .AddFluentUIComponents();
 
 builder.Services
     .AddInfrastructure(builder.Configuration)

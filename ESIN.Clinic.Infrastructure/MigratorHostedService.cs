@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace ESIN.Clinic.CrossCutting;
+namespace ESIN.Clinic.Infrastructure;
 
 public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnvironment currentEnvironment) : IHostedService
 {
