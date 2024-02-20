@@ -1,31 +1,31 @@
 ﻿using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Domain.Entities;
+using ESIN.Clinic.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace ESIN.Clinic.Infrastructure.Repositories;
 
-public class ManufacturerRepository : IManufacturerRepository
+public class ManufacturerRepository(ClinicDbContext dbContext) : IManufacturerRepository
 {
-    public Task<IEnumerable<Manufacturer>> GetManufacturers()
+    public async Task<IEnumerable<Manufacturer>> GetManufacturers()
+        => await dbContext.Manufacturers.ToListAsync();
+
+    public async Task<Manufacturer?> GetManufacturerById(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Manufacturer?> GetManufacturerById(int id)
+    public async Task<Manufacturer> AddManufacturer(Manufacturer manufacturer)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Manufacturer> AddManufacturer(Manufacturer manufacturer)
+    public async Task UpdateManufacturer(Manufacturer manufacturer)
     {
         throw new NotImplementedException();
     }
 
-    public Task UpdateManufacturer(Manufacturer manufacturer)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task DeleteManufacturerById(int id)
+    public async Task DeleteManufacturerById(int id)
     {
         throw new NotImplementedException();
     }

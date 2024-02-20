@@ -8,11 +8,8 @@ namespace ESIN.Clinic.Infrastructure.Repositories;
 public class CategoryRepository(ClinicDbContext dbContext) : ICategoryRepository
 {
     public async Task<IEnumerable<Category>> GetCategories()
-    {
-        List<Category> categories = await dbContext.Categories.ToListAsync();
+        => await dbContext.Categories.ToListAsync();
         
-        return categories;
-    }
 
     public async Task<Category?> GetCategoryById(int id)
     {

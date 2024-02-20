@@ -8,11 +8,7 @@ namespace ESIN.Clinic.Infrastructure.Repositories;
 public class HospitalUnitRepository(ClinicDbContext dbContext) : IHospitalUnitRepository
 {
     public async Task<IEnumerable<HospitalUnit>> GetHospitalUnits()
-    {
-        List<HospitalUnit> hospitalUnits = await dbContext.HospitalUnits.ToListAsync();
-        
-        return hospitalUnits;
-    }
+        => await dbContext.HospitalUnits.ToListAsync();
 
     public async Task<HospitalUnit?> GetHospitalUnitById(int id)
     {

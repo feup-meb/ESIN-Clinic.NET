@@ -8,14 +8,10 @@ namespace ESIN.Clinic.Infrastructure.Repositories;
 public class EquipmentRepository(ClinicDbContext dbContext) : IEquipmentRepository
 {
     public async Task<IEnumerable<Equipment>> GetEquipments()
-    {
-        List<Equipment> equipments = await dbContext.Equipments
+        => await dbContext.Equipments
             .Include(x => x.HospitalUnit)
             .Include(x => x.Manufacturer)
             .ToListAsync();
-        
-        return equipments;
-    }
 
     public async Task<Equipment?> GetEquipmentById(int id)
     {
