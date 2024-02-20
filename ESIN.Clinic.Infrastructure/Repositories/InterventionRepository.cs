@@ -1,31 +1,34 @@
 ﻿using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Domain.Entities;
+using ESIN.Clinic.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace ESIN.Clinic.Infrastructure.Repositories;
 
-public class InterventionRepository : IInterventionRepository
+public class InterventionRepository(ClinicDbContext dbContext) : IInterventionRepository
 {
-    public Task<IEnumerable<Intervention>> GetInterventions()
+    public async Task<IEnumerable<Intervention>> GetInterventions()
+        => await dbContext.Interventions
+            .Include(x=>x.Equipment)
+            .Include(x=>x.Employee)
+            .ToListAsync();
+
+    public async Task<Intervention?> GetInterventionById(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Intervention?> GetInterventionById(int id)
+    public async Task<Intervention> AddIntervention(Intervention intervention)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Intervention> AddIntervention(Intervention intervention)
+    public async Task UpdateIntervention(Intervention intervention)
     {
         throw new NotImplementedException();
     }
 
-    public Task UpdateIntervention(Intervention intervention)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task DeleteInterventionById(int id)
+    public async Task DeleteInterventionById(int id)
     {
         throw new NotImplementedException();
     }
