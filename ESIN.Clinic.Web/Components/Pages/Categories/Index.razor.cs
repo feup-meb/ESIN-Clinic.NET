@@ -11,7 +11,7 @@ public partial class Index
     private PaginationState pagination = new() { ItemsPerPage = 2 };
     private string nameFilter = string.Empty;
 
-    private GridSort<Category> rankSort = GridSort<Category>
+    private GridSort<Category> sort = GridSort<Category>
         .ByDescending(x => x.Name)
         .ThenDescending(x => x.Description);
 
