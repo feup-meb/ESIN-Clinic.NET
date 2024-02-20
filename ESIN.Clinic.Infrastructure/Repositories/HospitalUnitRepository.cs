@@ -1,31 +1,35 @@
 ﻿using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Domain.Entities;
+using ESIN.Clinic.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace ESIN.Clinic.Infrastructure.Repositories;
 
-public class HospitalUnitRepository : IHospitalUnitRepository
+public class HospitalUnitRepository(ClinicDbContext dbContext) : IHospitalUnitRepository
 {
-    public Task<IEnumerable<HospitalUnit>> GetHospitalUnits()
+    public async Task<IEnumerable<HospitalUnit>> GetHospitalUnits()
+    {
+        List<HospitalUnit> hospitalUnits = await dbContext.HospitalUnits.ToListAsync();
+        
+        return hospitalUnits;
+    }
+
+    public async Task<HospitalUnit?> GetHospitalUnitById(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<HospitalUnit?> GetHospitalUnitById(int id)
+    public async Task<HospitalUnit> AddHospitalUnit(HospitalUnit hospitalUnit)
     {
         throw new NotImplementedException();
     }
 
-    public Task<HospitalUnit> AddHospitalUnit(HospitalUnit hospitalUnit)
+    public async Task UpdateHospitalUnit(HospitalUnit hospitalUnit)
     {
         throw new NotImplementedException();
     }
 
-    public Task UpdateHospitalUnit(HospitalUnit hospitalUnit)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task DeleteHospitalUnitById(int id)
+    public async Task DeleteHospitalUnitById(int id)
     {
         throw new NotImplementedException();
     }
