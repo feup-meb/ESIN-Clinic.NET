@@ -1,32 +1,58 @@
 ﻿using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Domain.Entities;
+using ESIN.Clinic.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace ESIN.Clinic.Infrastructure.Repositories;
 
-public class EquipmentRepository : IEquipmentRepository
+public class EquipmentRepository(ClinicDbContext dbContext) : IEquipmentRepository
 {
-    public Task<IEnumerable<Equipment>> GetEquipments()
+    public async Task<IEnumerable<Equipment>> GetEquipments()
     {
-        throw new NotImplementedException();
+        List<Equipment> equipments = await dbContext.Equipments
+            .Include(x => x.HospitalUnit)
+            .Include(x => x.Manufacturer)
+            .ToListAsync();
+        
+        return equipments;
     }
 
-    public Task<Equipment?> GetEquipmentById(int id)
+    public async Task<Equipment?> GetEquipmentById(int id)
     {
-        throw new NotImplementedException();
+        Equipment? category = await dbContext.Equipments
+            .FirstOrDefaultAsync(x => x.Id == id);
+        
+        if (category == default)
+            throw new InvalidOperationException("Invalid data...");
+        
+        return category;
     }
 
-    public Task<Equipment> AddEquipment(Equipment equipment)
+    public async Task<Equipment> AddEquipment(Equipment equipment)
     {
-        throw new NotImplementedException();
+        dbContext.Equipments.Add(equipment);
+        await dbContext.SaveChangesAsync();
+        return equipment;
     }
 
-    public Task UpdateEquipment(Equipment equipment)
+    public async Task UpdateEquipment(Equipment equipment)
     {
-        throw new NotImplementedException();
+        if (equipment == null)
+            throw new InvalidOperationException("Invalid data...");
+
+        dbContext.Entry(equipment).State = EntityState.Modified;
+        await dbContext.SaveChangesAsync();
     }
 
-    public Task DeleteEquipmentById(int id)
+    public async Task DeleteEquipmentById(int id)
     {
-        throw new NotImplementedException();
+        Equipment? equipment = await dbContext.Equipments
+            .FirstOrDefaultAsync(x => x.Id == id);
+        
+        if (equipment == null)
+            throw new InvalidOperationException("Invalid data...");
+
+        dbContext.Equipments.Remove(equipment);
+        await dbContext.SaveChangesAsync();
     }
 }

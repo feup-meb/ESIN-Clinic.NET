@@ -1,7 +1,23 @@
 ﻿@page "/Equipments"
 
+@using ESIN.Clinic.Application.Equipments
+
+@inject GetEquipmentsQuery getEquipmentsQuery
+
 <h3>Equipments</h3>
 
-@code {
-    
-}
+<FluentDataGrid Items="@FilteredItems" ResizableColumns=true Pagination="@pagination" GridTemplateColumns="1fr 1fr 1fr 1fr .5fr" Style="height: 405px;overflow:auto;">
+    <PropertyColumn Property="@(c => c.Name)" Sortable="true" Tooltip="true" Title="Name">
+        <ColumnOptions>
+            <div class="search-box">
+                <FluentSearch type="search" Autofocus="true" @bind-Value="@nameFilter" @oninput="HandleCountryFilter" @bind-Value:after="HandleClear" Placeholder="Category name..." />
+            </div>
+        </ColumnOptions>
+    </PropertyColumn>
+    <PropertyColumn Property="@(c => c.Model)" Align="Align.Start" Tooltip="true" Title="Model" />
+    <PropertyColumn Property="@(c => c.Manufacturer.Name)" Align="Align.Start" Tooltip="true" Title="Manufacturer" />
+    <PropertyColumn Property="@(c => c.HospitalUnit.Name)" Align="Align.Start" Tooltip="true" Title="Unit" />
+    <PropertyColumn Property="@(c => c.IsActive)" Align="Align.Center" Tooltip="true" Title="Active" />
+</FluentDataGrid>
+
+<FluentPaginator State="@pagination" />

@@ -9,7 +9,8 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING");
+        var connectionString = configuration.GetConnectionString("Default");
+        // var connectionString = configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING");
         services.AddDbContext<ClinicDbContext>(opt => opt.UseNpgsql(connectionString));
         AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         
