@@ -20,7 +20,7 @@ public partial class Index
 
     protected override async Task OnInitializedAsync()
     {
-        items = (await GetCategoriesQuery.GetCategoriesAsync()).AsQueryable();
+        items = (await getCategoriesQuery.GetCategoriesAsync()).AsQueryable();
     }
 
     private void HandleCountryFilter(ChangeEventArgs args)
