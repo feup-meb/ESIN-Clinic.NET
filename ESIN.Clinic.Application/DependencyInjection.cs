@@ -1,6 +1,7 @@
 ﻿using ESIN.Clinic.Application.Categories;
 using ESIN.Clinic.Application.Equipments;
 using ESIN.Clinic.Application.HospitalUnits;
+using ESIN.Clinic.Application.Manufacturers;
 using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,7 @@ public static class DependencyInjection
         services.AddScoped<GetCategoryByIdQuery>();
         services.AddScoped<GetEquipmentsQuery>();
         services.AddScoped<GetHospitalUnitsQuery>();
+        services.AddScoped<GetManufacturersQuery>();
         
         return services;
     }
