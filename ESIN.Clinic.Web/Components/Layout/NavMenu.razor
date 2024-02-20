@@ -13,7 +13,6 @@
             @* <FluentNavLink Href="counter" Icon="@(new Icons.Regular.Size20.NumberSymbolSquare())" IconColor="Color.Accent">Counter</FluentNavLink> *@
             @* <FluentNavLink Href="weather" Icon="@(new Icons.Regular.Size20.WeatherPartlyCloudyDay())" IconColor="Color.Accent">Weather</FluentNavLink> *@
             
-            @* <FluentNavLink Href="interventions" Icon="@(new Icons.Regular.Size20.Wrench())" IconColor="Color.Accent">Interventions</FluentNavLink> *@
             <FluentNavGroup Title="Interventions" Icon="@(new Icons.Regular.Size20.Wrench())" ActiveClass="active">
                 <ChildContent>
                     <FluentNavLink Href="interventions" IconColor="Color.Accent">List Interventions</FluentNavLink>
@@ -21,7 +20,6 @@
                 </ChildContent>
             </FluentNavGroup>
                 
-            @* <FluentNavLink Href="units" Icon="@(new Icons.Regular.Size20.Building())" IconColor="Color.Accent">Hospital Units</FluentNavLink> *@
             <FluentNavGroup Title="Hospital Units" Icon="@(new Icons.Regular.Size20.Building())">
                 <ChildContent>
                     <FluentNavLink Href="units" Icon="@(new Icons.Regular.Size20.Building())" IconColor="Color.Accent">List Hospital Units</FluentNavLink>
@@ -29,7 +27,6 @@
                 </ChildContent>
             </FluentNavGroup>
             
-            @* <FluentNavLink Href="equipments" Icon="@(new Icons.Regular.Size20.Tv())" IconColor="Color.Accent">Equipments</FluentNavLink> *@
             <FluentNavGroup Title="Equipments" Icon="@(new Icons.Regular.Size20.Tv())">
                 <ChildContent>
                     <FluentNavLink Href="equipments" Icon="@(new Icons.Regular.Size20.Tv())" IconColor="Color.Accent">List Equipments</FluentNavLink>
@@ -37,7 +34,6 @@
                 </ChildContent>
             </FluentNavGroup>
             
-            @* <FluentNavLink Href="categories" Icon="@(new Icons.Regular.Size20.Apps())" IconColor="Color.Accent">Equipment Categories</FluentNavLink> *@
             <FluentNavGroup Title="Equipment Categories" Icon="@(new Icons.Regular.Size20.Apps())">
                 <ChildContent>
                     <FluentNavLink Match="NavLinkMatch.All" Href="categories" Icon="@(new Icons.Regular.Size20.Apps())" IconColor="Color.Accent">List Equipment Categories</FluentNavLink>
@@ -45,7 +41,6 @@
                 </ChildContent>
             </FluentNavGroup>
             
-            @* <FluentNavLink Href="manufacturers" Icon="@(new Icons.Regular.Size20.BuildingFactory())" IconColor="Color.Accent">Manufacturers</FluentNavLink> *@
             <FluentNavGroup Title="Manufacturers" Icon="@(new Icons.Regular.Size20.BuildingFactory())" Match="NavLinkMatch.Prefix">
                 <ChildContent>
                     <FluentNavLink Href="manufacturers" Icon="@(new Icons.Regular.Size20.BuildingFactory())" IconColor="Color.Accent">List Manufacturers</FluentNavLink>
@@ -59,10 +54,6 @@
 @code {
     private bool expanded = true;
 
-    private void Callback(bool obj)
-    {
-        var tst = obj.GetDescription();
-        int tet = 1;
-    }
+  
 
 }
