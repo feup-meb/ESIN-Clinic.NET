@@ -3,15 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Domain", "ESIN.Clinic.Domain\ESIN.Clinic.Domain.csproj", "{C28FAAF8-ED8A-4AC3-A67A-2E6A1E32FECB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Infrastructure", "ESIN.Clinic.Infrastructure\ESIN.Clinic.Infrastructure.csproj", "{40D7FAA8-9D49-4D0A-ADDB-D9129AEFE94C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Application", "ESIN.Clinic.Application\ESIN.Clinic.Application.csproj", "{C5D26ABC-9C6B-4440-99F2-7E7931282ECE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Web", "ESIN.Clinic.Web\ESIN.Clinic.Web.csproj", "{A6D0A54F-9C96-4332-B589-4EBC909BEC96}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0ED15797-97E0-40D8-8F1D-14C1F9A12403}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.WebApp", "ESIN.Clinic.WebApp\ESIN.Clinic.WebApp.csproj", "{06C0A859-C94A-4B47-B73C-6DC385DA7544}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,27 +16,12 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C28FAAF8-ED8A-4AC3-A67A-2E6A1E32FECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C28FAAF8-ED8A-4AC3-A67A-2E6A1E32FECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C28FAAF8-ED8A-4AC3-A67A-2E6A1E32FECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C28FAAF8-ED8A-4AC3-A67A-2E6A1E32FECB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{40D7FAA8-9D49-4D0A-ADDB-D9129AEFE94C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40D7FAA8-9D49-4D0A-ADDB-D9129AEFE94C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40D7FAA8-9D49-4D0A-ADDB-D9129AEFE94C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40D7FAA8-9D49-4D0A-ADDB-D9129AEFE94C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5D26ABC-9C6B-4440-99F2-7E7931282ECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5D26ABC-9C6B-4440-99F2-7E7931282ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5D26ABC-9C6B-4440-99F2-7E7931282ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5D26ABC-9C6B-4440-99F2-7E7931282ECE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A6D0A54F-9C96-4332-B589-4EBC909BEC96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6D0A54F-9C96-4332-B589-4EBC909BEC96}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6D0A54F-9C96-4332-B589-4EBC909BEC96}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6D0A54F-9C96-4332-B589-4EBC909BEC96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C0A859-C94A-4B47-B73C-6DC385DA7544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C0A859-C94A-4B47-B73C-6DC385DA7544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C0A859-C94A-4B47-B73C-6DC385DA7544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C0A859-C94A-4B47-B73C-6DC385DA7544}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C5D26ABC-9C6B-4440-99F2-7E7931282ECE} = {0ED15797-97E0-40D8-8F1D-14C1F9A12403}
-		{C28FAAF8-ED8A-4AC3-A67A-2E6A1E32FECB} = {0ED15797-97E0-40D8-8F1D-14C1F9A12403}
-		{40D7FAA8-9D49-4D0A-ADDB-D9129AEFE94C} = {0ED15797-97E0-40D8-8F1D-14C1F9A12403}
-		{A6D0A54F-9C96-4332-B589-4EBC909BEC96} = {0ED15797-97E0-40D8-8F1D-14C1F9A12403}
+		{06C0A859-C94A-4B47-B73C-6DC385DA7544} = {0ED15797-97E0-40D8-8F1D-14C1F9A12403}
 	EndGlobalSection
 EndGlobal
