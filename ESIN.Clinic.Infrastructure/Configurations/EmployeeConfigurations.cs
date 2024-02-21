@@ -12,6 +12,7 @@ public class EmployeeConfigurations : IEntityTypeConfiguration<Employee>
         builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
         builder.Property(x => x.Password).IsRequired();
         builder.Property(x => x.EmployeeNumber).HasMaxLength(12).IsRequired();
+        builder.HasMany(x => x.Equipments).WithMany(x => x.Employees);
         // builder.Property(x => x.BirthDate).IsRequired();
         // builder.Property(x => x.Address).IsRequired();
         

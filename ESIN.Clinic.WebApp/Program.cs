@@ -1,3 +1,4 @@
+using ESIN.Clinic.Application;
 using ESIN.Clinic.Infrastructure;
 using ESIN.Clinic.WebApp.Components;
 
@@ -8,7 +9,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services
-    .AddInfrastructure(builder.Configuration);
+    .AddInfrastructure(builder.Configuration)
+    .AddRepositoryServices();
 
 var app = builder.Build();
 

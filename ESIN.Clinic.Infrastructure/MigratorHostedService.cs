@@ -54,7 +54,7 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
         dbCtx.SaveChanges();
         
         AddInterventions(dbCtx);
-        AddEquipmentAccesses(dbCtx);
+        // AddEquipmentAccesses(dbCtx);
     }
 
     private static void SeedTestData(ClinicDbContext dbCtx)
@@ -241,29 +241,29 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
             dbCtx.Interventions.AddRange(interventionsToCreate);
     }
     
-    private static void AddEquipmentAccesses(ClinicDbContext dbCtx)
-    {
-        List<EquipmentAccess> equipmentAccesses =
-        [
-            new EquipmentAccess { Id = 1, EmployeeId = 1, Employee = dbCtx.Employees.First(x => x.Id == 1), EquipmentId = 1, Equipment = dbCtx.Equipments.First(x => x.Id == 1) },
-            new EquipmentAccess { Id = 2, EmployeeId = 1, Employee = dbCtx.Employees.First(x => x.Id == 1), EquipmentId = 2, Equipment = dbCtx.Equipments.First(x => x.Id == 2) },
-            new EquipmentAccess { Id = 3, EmployeeId = 2, Employee = dbCtx.Employees.First(x => x.Id == 2), EquipmentId = 3, Equipment = dbCtx.Equipments.First(x => x.Id == 3) },
-            new EquipmentAccess { Id = 4, EmployeeId = 2, Employee = dbCtx.Employees.First(x => x.Id == 2), EquipmentId = 4, Equipment = dbCtx.Equipments.First(x => x.Id == 4) },
-            new EquipmentAccess { Id = 5, EmployeeId = 3, Employee = dbCtx.Employees.First(x => x.Id == 3), EquipmentId = 1, Equipment = dbCtx.Equipments.First(x => x.Id == 1) },
-            new EquipmentAccess { Id = 6, EmployeeId = 3, Employee = dbCtx.Employees.First(x => x.Id == 3), EquipmentId = 3, Equipment = dbCtx.Equipments.First(x => x.Id == 3) }
-        ];
-
-        var equipmentAccessIds = equipmentAccesses.Select(x => x.Id);
-        var equipmentAccessesAlreadyCreated = dbCtx.EquipmentAccesses
-            .IgnoreQueryFilters()
-            .Where(x => equipmentAccessIds.Contains(x.Id))
-            .Select(x => x.Id)
-            .ToList();
-        var equipmentAccessesToCreate = equipmentAccesses
-            .Where(x => !equipmentAccessesAlreadyCreated.Contains(x.Id))
-            .ToList();
-
-        if (equipmentAccessesToCreate.Any())
-            dbCtx.EquipmentAccesses.AddRange(equipmentAccessesToCreate);
-    }
+    // private static void AddEquipmentAccesses(ClinicDbContext dbCtx)
+    // {
+    //     List<EquipmentAccess> equipmentAccesses =
+    //     [
+    //         new EquipmentAccess { Id = 1, EmployeeId = 1, Employee = dbCtx.Employees.First(x => x.Id == 1), EquipmentId = 1, Equipment = dbCtx.Equipments.First(x => x.Id == 1) },
+    //         new EquipmentAccess { Id = 2, EmployeeId = 1, Employee = dbCtx.Employees.First(x => x.Id == 1), EquipmentId = 2, Equipment = dbCtx.Equipments.First(x => x.Id == 2) },
+    //         new EquipmentAccess { Id = 3, EmployeeId = 2, Employee = dbCtx.Employees.First(x => x.Id == 2), EquipmentId = 3, Equipment = dbCtx.Equipments.First(x => x.Id == 3) },
+    //         new EquipmentAccess { Id = 4, EmployeeId = 2, Employee = dbCtx.Employees.First(x => x.Id == 2), EquipmentId = 4, Equipment = dbCtx.Equipments.First(x => x.Id == 4) },
+    //         new EquipmentAccess { Id = 5, EmployeeId = 3, Employee = dbCtx.Employees.First(x => x.Id == 3), EquipmentId = 1, Equipment = dbCtx.Equipments.First(x => x.Id == 1) },
+    //         new EquipmentAccess { Id = 6, EmployeeId = 3, Employee = dbCtx.Employees.First(x => x.Id == 3), EquipmentId = 3, Equipment = dbCtx.Equipments.First(x => x.Id == 3) }
+    //     ];
+    //
+    //     var equipmentAccessIds = equipmentAccesses.Select(x => x.Id);
+    //     var equipmentAccessesAlreadyCreated = dbCtx.EquipmentAccesses
+    //         .IgnoreQueryFilters()
+    //         .Where(x => equipmentAccessIds.Contains(x.Id))
+    //         .Select(x => x.Id)
+    //         .ToList();
+    //     var equipmentAccessesToCreate = equipmentAccesses
+    //         .Where(x => !equipmentAccessesAlreadyCreated.Contains(x.Id))
+    //         .ToList();
+    //
+    //     if (equipmentAccessesToCreate.Any())
+    //         dbCtx.EquipmentAccesses.AddRange(equipmentAccessesToCreate);
+    // }
 }
