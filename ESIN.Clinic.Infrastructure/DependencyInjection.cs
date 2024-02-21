@@ -12,7 +12,7 @@ public static class DependencyInjection
         var connectionString = configuration.GetConnectionString("Default");
         services.AddDbContext<ClinicDbContext>(opt => opt.UseSqlServer(connectionString));
         
-        // services.AddHostedService<MigratorHostedService>();
+        services.AddHostedService<MigratorHostedService>();
         
         return services;
     }
