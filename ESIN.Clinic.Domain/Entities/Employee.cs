@@ -9,7 +9,6 @@ public class Employee
     public required string EmployeeNumber { get; set; }
     public required string Password { get; set; }
 
-    public List<Equipment> Equipments { get; set; }
     public int HospitalUnitId { get; set; }
     public required HospitalUnit HospitalUnit { get; set; }
     public int UserRoleId { get; set; }

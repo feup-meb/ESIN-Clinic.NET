@@ -21,7 +21,7 @@ public class InterventionConfigurations : IEntityTypeConfiguration<Intervention>
         builder.Property(x => x.InvoiceValue).HasPrecision(7, 2);
         builder.Property(x => x.Observations);
 
-        builder.HasOne(x=>x.Employee);
-        builder.HasOne(x=>x.Equipment);
+        builder.HasOne(x=>x.Employee).WithMany().OnDelete(DeleteBehavior.NoAction);
+        builder.HasOne(x=>x.Equipment).WithMany().OnDelete(DeleteBehavior.NoAction);
     }
 }

@@ -144,6 +144,29 @@ namespace ESIN.Clinic.Infrastructure.Migrations
                     b.ToTable("Equipments");
                 });
 
+            modelBuilder.Entity("ESIN.Clinic.Domain.Entities.EquipmentAccess", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EquipmentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("EquipmentId");
+
+                    b.ToTable("EquipmentAccesses");
+                });
+
             modelBuilder.Entity("ESIN.Clinic.Domain.Entities.HospitalUnit", b =>
                 {
                     b.Property<int>("Id")
@@ -266,21 +289,6 @@ namespace ESIN.Clinic.Infrastructure.Migrations
                     b.ToTable("UserRoles");
                 });
 
-            modelBuilder.Entity("EmployeeEquipment", b =>
-                {
-                    b.Property<int>("EmployeesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EquipmentsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("EmployeesId", "EquipmentsId");
-
-                    b.HasIndex("EquipmentsId");
-
-                    b.ToTable("EmployeeEquipment");
-                });
-
             modelBuilder.Entity("ESIN.Clinic.Domain.Entities.Employee", b =>
                 {
                     b.HasOne("ESIN.Clinic.Domain.Entities.HospitalUnit", "HospitalUnit")
@@ -327,18 +335,18 @@ namespace ESIN.Clinic.Infrastructure.Migrations
                     b.Navigation("Manufacturer");
                 });
 
-            modelBuilder.Entity("ESIN.Clinic.Domain.Entities.Intervention", b =>
+            modelBuilder.Entity("ESIN.Clinic.Domain.Entities.EquipmentAccess", b =>
                 {
                     b.HasOne("ESIN.Clinic.Domain.Entities.Employee", "Employee")
                         .WithMany()
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("ESIN.Clinic.Domain.Entities.Equipment", "Equipment")
                         .WithMany()
                         .HasForeignKey("EquipmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Employee");
@@ -346,19 +354,23 @@ namespace ESIN.Clinic.Infrastructure.Migrations
                     b.Navigation("Equipment");
                 });
 
-            modelBuilder.Entity("EmployeeEquipment", b =>
+            modelBuilder.Entity("ESIN.Clinic.Domain.Entities.Intervention", b =>
                 {
-                    b.HasOne("ESIN.Clinic.Domain.Entities.Employee", null)
+                    b.HasOne("ESIN.Clinic.Domain.Entities.Employee", "Employee")
                         .WithMany()
-                        .HasForeignKey("EmployeesId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("ESIN.Clinic.Domain.Entities.Equipment", null)
+                    b.HasOne("ESIN.Clinic.Domain.Entities.Equipment", "Equipment")
                         .WithMany()
-                        .HasForeignKey("EquipmentsId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("EquipmentId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("Equipment");
                 });
 #pragma warning restore 612, 618
         }

@@ -15,6 +15,7 @@ public class ClinicDbContext : DbContext
     public DbSet<Equipment> Equipments { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Manufacturer> Manufacturers { get; set; }
+    public DbSet<EquipmentAccess> EquipmentAccesses { get; set; }
     public DbSet<Employee> Employees { get; set; }
     public DbSet<UserRole> UserRoles { get; set; }
 

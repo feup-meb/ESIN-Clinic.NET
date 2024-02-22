@@ -11,7 +11,6 @@ public class Equipment
     public required DateTime WarrantyDate { get; set; }
     public double? Price { get; set; }
     public bool IsActive { get; set; }
-    public List<Employee> Employees { get; set; }
     
     public int ManufacturerId { get; set; }
     public required Manufacturer Manufacturer { get; set; }

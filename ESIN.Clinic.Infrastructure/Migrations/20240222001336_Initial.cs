@@ -142,27 +142,27 @@ namespace ESIN.Clinic.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EmployeeEquipment",
+                name: "EquipmentAccesses",
                 columns: table => new
                 {
-                    EmployeesId = table.Column<int>(type: "int", nullable: false),
-                    EquipmentsId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    EquipmentId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmployeeEquipment", x => new { x.EmployeesId, x.EquipmentsId });
+                    table.PrimaryKey("PK_EquipmentAccesses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EmployeeEquipment_Employees_EmployeesId",
-                        column: x => x.EmployeesId,
+                        name: "FK_EquipmentAccesses_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
                         principalTable: "Employees",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_EmployeeEquipment_Equipments_EquipmentsId",
-                        column: x => x.EquipmentsId,
+                        name: "FK_EquipmentAccesses_Equipments_EquipmentId",
+                        column: x => x.EquipmentId,
                         principalTable: "Equipments",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -188,20 +188,13 @@ namespace ESIN.Clinic.Infrastructure.Migrations
                         name: "FK_Interventions_Employees_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Interventions_Equipments_EquipmentId",
                         column: x => x.EquipmentId,
                         principalTable: "Equipments",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_EmployeeEquipment_EquipmentsId",
-                table: "EmployeeEquipment",
-                column: "EquipmentsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employees_HospitalUnitId",
@@ -212,6 +205,16 @@ namespace ESIN.Clinic.Infrastructure.Migrations
                 name: "IX_Employees_UserRoleId",
                 table: "Employees",
                 column: "UserRoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EquipmentAccesses_EmployeeId",
+                table: "EquipmentAccesses",
+                column: "EmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EquipmentAccesses_EquipmentId",
+                table: "EquipmentAccesses",
+                column: "EquipmentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Equipments_CategoryId",
@@ -249,7 +252,7 @@ namespace ESIN.Clinic.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EmployeeEquipment");
+                name: "EquipmentAccesses");
 
             migrationBuilder.DropTable(
                 name: "Interventions");
