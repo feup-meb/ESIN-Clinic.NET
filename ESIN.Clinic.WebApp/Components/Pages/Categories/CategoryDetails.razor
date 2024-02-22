@@ -1,0 +1,13 @@
+﻿@page "/Category/Detail/{Id:int?}"
+
+@using ESIN.Clinic.Application.Categories
+
+@inject GetCategoryByIdQuery GetCategoryByIdQuery
+
+<h3>Category Detail</h3>
+
+<p>Category <strong>@Id</strong></p>
+<ul>
+    <li><strong>Name:</strong>&nbsp;@item.Name</li>
+    <li><strong>Description:</strong>&nbsp;@item.Description</li>
+</ul>

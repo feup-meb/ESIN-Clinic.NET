@@ -1,0 +1,23 @@
+﻿@page "/Manufacturers"
+
+@using ESIN.Clinic.Application.Manufacturers
+
+@inject GetManufacturersQuery getManufacturersQuery
+
+<h3>Manufacturers</h3>
+
+@* <FluentDataGrid Items="@FilteredItems" ResizableColumns=true Pagination="@pagination" GridTemplateColumns="1.2fr 1.2fr .7fr 1fr 1.2fr" Style="height: 405px;overflow:auto;"> *@
+@*     <PropertyColumn Property="@(c => c.Name)" Sortable="true" Tooltip="true" Title="Name"> *@
+@*         <ColumnOptions> *@
+@*             <div class="search-box"> *@
+@*                 <FluentSearch type="search" Autofocus="true" @bind-Value="@nameFilter" @oninput="HandleCountryFilter" @bind-Value:after="HandleClear" Placeholder="Category name..." /> *@
+@*             </div> *@
+@*         </ColumnOptions> *@
+@*     </PropertyColumn> *@
+@*     <PropertyColumn Property="@(c => c.Email)" Align="Align.Start" Tooltip="true" Title="Email" /> *@
+@*     <PropertyColumn Property="@(c => c.PhoneNumber)" Align="Align.Start" Tooltip="true" Title="Phone Number" /> *@
+@*     <PropertyColumn Property="@(c => c.MobilePhoneNumber)" Align="Align.Start" Tooltip="true" Title="Mobile Phone Number" /> *@
+@*     <PropertyColumn Property="@(c => c.Address)" Align="Align.Start" Tooltip="true" Title="Address" /> *@
+@* </FluentDataGrid> *@
+@* *@
+@* <FluentPaginator State="@pagination" /> *@
