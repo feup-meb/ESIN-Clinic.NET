@@ -1,20 +1,24 @@
 ﻿@page "/Units"
 
+@using Microsoft.AspNetCore.Components.QuickGrid
 @using ESIN.Clinic.Application.HospitalUnits
 
 @inject GetHospitalUnitsQuery getHospitalUnitsQuery
 
 <h3>Hospital Units</h3>
 
-@* <FluentDataGrid Items="@FilteredItems" ResizableColumns=true Pagination="@pagination" GridTemplateColumns="2fr 1fr" Style="height: 405px;overflow:auto;"> *@
-@*     <PropertyColumn Property="@(c => c.Name)" Sortable="true" Tooltip="true" Title="Name"> *@
-@*         <ColumnOptions> *@
-@*             <div class="search-box"> *@
-@*                 <FluentSearch type="search" Autofocus="true" @bind-Value="@nameFilter" @oninput="HandleCountryFilter" @bind-Value:after="HandleClear" Placeholder="Category name..." /> *@
-@*             </div> *@
-@*         </ColumnOptions> *@
-@*     </PropertyColumn> *@
-@*     <PropertyColumn Property="@(c => c.Room)" Align="Align.Start" Tooltip="true" Title="Room" /> *@
-@* </FluentDataGrid> *@
-@* *@
+<div class="d-flex flex-wrap justify-content-center align-items-center py-2 col-md-4">
+    @* <QuickGrid Items="@FilteredItems" ResizableColumns=true Pagination="@pagination" GridTemplateColumns="1.2fr 1.2fr .7fr 1fr 1.2fr" Style="height: 405px;overflow:auto;"> *@
+    <QuickGrid Items="@FilteredItems" ItemKey="@(c => c.Id)" Class="table table-hover">
+        <PropertyColumn Property="@(c => c.Name)" Sortable="true" Class="py-2" Title="Name">
+            @* <ColumnOptions> *@
+            @*     <div class="search-box"> *@
+            @*         <input type="search" Autofocus="true" @bind-Value="@nameFilter" @oninput="HandleCountryFilter" @bind-Value:after="HandleClear" Placeholder="Category name..." /> *@
+            @*     </div> *@
+            @* </ColumnOptions> *@
+        </PropertyColumn>
+        <PropertyColumn Property="@(c => c.Room)" Align="Align.Start" Class="py-2" Title="Room" />
+    </QuickGrid>
+</div>
+
 @* <FluentPaginator State="@pagination" /> *@
