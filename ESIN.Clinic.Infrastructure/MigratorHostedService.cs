@@ -54,7 +54,7 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
         dbCtx.SaveChanges();
         
         AddInterventions(dbCtx);
-        // AddEquipmentAccesses(dbCtx);
+        AddEquipmentAccesses(dbCtx);
     }
 
     private static void SeedTestData(ClinicDbContext dbCtx)
@@ -70,18 +70,17 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
             new UserRole { Name = "Utilizador" }
         ];
 
-        var roleIds = roles.Select(x => x.Id);
-        var rolesAlreadyCreated = dbCtx.UserRoles
-            .IgnoreQueryFilters()
-            .Where(x => roleIds.Contains(x.Id))
-            .Select(x => x.Id)
-            .ToList();
-        var rolesToCreate = roles
-            .Where(x => !rolesAlreadyCreated.Contains(x.Id))
-            .ToList();
-
-        if (rolesToCreate.Any())
-            dbCtx.UserRoles.AddRange(rolesToCreate);
+        var dbRoles = dbCtx.UserRoles.IgnoreQueryFilters().ToList();
+        
+        foreach (UserRole role in roles)
+        {
+            UserRole? exitingRole = dbRoles
+                .SingleOrDefault(x => x.Name == role.Name);
+            
+            if (exitingRole == null)
+                dbCtx.UserRoles.Add(role);
+        }
+        
     }
     
     private static void AddCategories(ClinicDbContext dbCtx)
@@ -94,18 +93,16 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
             new Category { Name = "Suporte", Description = "Equipamentos utilizados no suporte à vida." }
         ];
 
-        var categoryIds = categories.Select(x => x.Id);
-        var categoriesAlreadyCreated = dbCtx.Categories
-            .IgnoreQueryFilters()
-            .Where(x => categoryIds.Contains(x.Id))
-            .Select(x => x.Id)
-            .ToList();
-        var categoriesToCreate = categories
-            .Where(x => !categoriesAlreadyCreated.Contains(x.Id))
-            .ToList();
+        var dbCategories = dbCtx.Categories.IgnoreQueryFilters().ToList();
 
-        if (categoriesToCreate.Any())
-            dbCtx.Categories.AddRange(categoriesToCreate);
+        foreach (Category category in categories)
+        {
+            Category? exitingCategory = dbCategories
+                .SingleOrDefault(x => x.Name == category.Name);
+            
+            if (exitingCategory == null)
+                dbCtx.Categories.Add(category);
+        }
     }
     
     private static void AddHospitalUnits(ClinicDbContext dbCtx)
@@ -118,18 +115,16 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
             new HospitalUnit { Name = "Radiologia", Room = "Sala 1" }
         ];
 
-        var hospitalUnitIds = hospitalUnits.Select(x => x.Id);
-        var hospitalUnitsAlreadyCreated = dbCtx.HospitalUnits
-            .IgnoreQueryFilters()
-            .Where(x => hospitalUnitIds.Contains(x.Id))
-            .Select(x => x.Id)
-            .ToList();
-        var hospitalUnitsToCreate = hospitalUnits
-            .Where(x => !hospitalUnitsAlreadyCreated.Contains(x.Id))
-            .ToList();
+        var dbHospitalUnits = dbCtx.HospitalUnits.IgnoreQueryFilters().ToList();
 
-        if (hospitalUnitsToCreate.Any())
-            dbCtx.HospitalUnits.AddRange(hospitalUnitsToCreate);
+        foreach (HospitalUnit hospitalUnit in hospitalUnits)
+        {
+            HospitalUnit? exitingHospitalUnit = dbHospitalUnits
+                .SingleOrDefault(x => x.Name == hospitalUnit.Name);
+            
+            if (exitingHospitalUnit == null)
+                dbCtx.HospitalUnits.Add(hospitalUnit);
+        }
     }
 
     private static void AddManufacturers(ClinicDbContext dbCtx)
@@ -144,18 +139,16 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
             new Manufacturer { Name = "Intermed", Email = "contacto@intermed.com", PhoneNumber = "225 522 105", MobilePhoneNumber = "910 690 780", Address = "Avenida dos Descobrimentos, 264" }
         ];
 
-        var manufacturerIds = manufacturers.Select(x => x.Id);
-        var manufacturersAlreadyCreated = dbCtx.Manufacturers
-            .IgnoreQueryFilters()
-            .Where(x => manufacturerIds.Contains(x.Id))
-            .Select(x => x.Id)
-            .ToList();
-        var manufacturersToCreate = manufacturers
-            .Where(x => !manufacturersAlreadyCreated.Contains(x.Id))
-            .ToList();
+        var dbManufacturers = dbCtx.Manufacturers.IgnoreQueryFilters().ToList();
 
-        if (manufacturersToCreate.Any())
-            dbCtx.Manufacturers.AddRange(manufacturersToCreate);
+        foreach (Manufacturer manufacturer in manufacturers)
+        {
+            Manufacturer? exitingManufacturer = dbManufacturers
+                .SingleOrDefault(x => x.Name == manufacturer.Name);
+            
+            if (exitingManufacturer == null)
+                dbCtx.Manufacturers.Add(manufacturer);
+        }
     }
 
     private static void AddEmployees(ClinicDbContext dbCtx)
@@ -167,18 +160,17 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
             new Employee { Name = "John Doe", Address = "Baker Street", HospitalUnitId = 2, HospitalUnit = dbCtx.HospitalUnits.First(x => x.Id == 2), EmployeeNumber = "up201812345", Password = "5156ef0b70aa95a7290689040e046e4415841155", UserRoleId = 2, UserRole = dbCtx.UserRoles.First(x => x.Id == 2) }
         ];
 
-        var employeeIds = employees.Select(x => x.Id);
-        var employeesAlreadyCreated = dbCtx.Employees
-            .IgnoreQueryFilters()
-            .Where(x => employeeIds.Contains(x.Id))
-            .Select(x => x.Id)
-            .ToList();
-        var employeesToCreate = employees
-            .Where(x => !employeesAlreadyCreated.Contains(x.Id))
-            .ToList();
-
-        if (employeesToCreate.Any())
-            dbCtx.Employees.AddRange(employeesToCreate);
+        var dbEmployees = dbCtx.Employees.IgnoreQueryFilters().ToList();
+        
+        foreach (Employee employee in employees)
+        {
+            Employee? exitingEmployee = dbEmployees
+                .SingleOrDefault(x => x.Name == employee.Name &&
+                                      x.EmployeeNumber == employee.EmployeeNumber);
+            
+            if (exitingEmployee == null)
+                dbCtx.Employees.Add(employee);
+        }
     }
     
     private static void AddEquipments(ClinicDbContext dbCtx)
@@ -194,18 +186,18 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
             new Equipment { Name = "Ventilador pulmonar", Model = "iX5", SerialNumber = "IX5-2012-09-00165", Description = "Aparelho que realiza as funções respiratórias pelo utente incapacitado.", ManufacturerId = 6, Manufacturer = dbCtx.Manufacturers.First(x => x.Id == 6), CategoryId = 4, Category = dbCtx.Categories.First(x => x.Id == 4), AcquisitionDate = new DateTime(2013, 12, 01), WarrantyDate = new DateTime(2014, 12, 01), Price = 56000, IsActive = true, HospitalUnitId = 2, HospitalUnit = dbCtx.HospitalUnits.First(x => x.Id == 2) }
         ];
 
-        var equipmentIds = equipments.Select(x => x.Id);
-        var equipmentsAlreadyCreated = dbCtx.Equipments
-            .IgnoreQueryFilters()
-            .Where(x => equipmentIds.Contains(x.Id))
-            .Select(x => x.Id)
-            .ToList();
-        var equipmentsToCreate = equipments
-            .Where(x => !equipmentsAlreadyCreated.Contains(x.Id))
-            .ToList();
-
-        if (equipmentsToCreate.Any())
-            dbCtx.Equipments.AddRange(equipmentsToCreate);
+        var dbEquipments = dbCtx.Equipments.IgnoreQueryFilters().ToList();
+        
+        foreach (Equipment equipment in equipments)
+        {
+            Equipment? exitingEquipment = dbEquipments
+                .SingleOrDefault(x => x.Model == equipment.Model &&
+                                      x.SerialNumber == equipment.SerialNumber &&
+                                      x.ManufacturerId == equipment.ManufacturerId);
+            
+            if (exitingEquipment == null)
+                dbCtx.Equipments.Add(equipment);
+        }
     }
     
     private static void AddInterventions(ClinicDbContext dbCtx)
@@ -226,18 +218,19 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
             }
         ];
 
-        var interventionIds = interventions.Select(x => x.Id);
-        var interventionsAlreadyCreated = dbCtx.Interventions
-            .IgnoreQueryFilters()
-            .Where(x => interventionIds.Contains(x.Id))
-            .Select(x => x.Id)
-            .ToList();
-        var interventionsToCreate = interventions
-            .Where(x => !interventionsAlreadyCreated.Contains(x.Id))
-            .ToList();
+        var dbInterventions = dbCtx.Interventions.IgnoreQueryFilters().ToList();
 
-        if (interventionsToCreate.Any())
-            dbCtx.Interventions.AddRange(interventionsToCreate);
+        foreach (Intervention intervention in interventions)
+        {
+            Intervention? exitingInterventions = dbInterventions
+                .SingleOrDefault(x => x.ReportDate == intervention.ReportDate &&
+                                      x.EmployeeId == intervention.EmployeeId &&
+                                      x.EquipmentId == intervention.EquipmentId &&
+                                      x.InterventionType == intervention.InterventionType);
+            
+            if (exitingInterventions == null)
+                dbCtx.Interventions.Add(intervention);
+        }
     }
     
     private static void AddEquipmentAccesses(ClinicDbContext dbCtx)
@@ -251,18 +244,17 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
             new EquipmentAccess { EmployeeId = 3, Employee = dbCtx.Employees.First(x => x.Id == 3), EquipmentId = 1, Equipment = dbCtx.Equipments.First(x => x.Id == 1) },
             new EquipmentAccess { EmployeeId = 3, Employee = dbCtx.Employees.First(x => x.Id == 3), EquipmentId = 3, Equipment = dbCtx.Equipments.First(x => x.Id == 3) }
         ];
-    
-        var equipmentAccessIds = equipmentAccesses.Select(x => x.Id);
-        var equipmentAccessesAlreadyCreated = dbCtx.EquipmentAccesses
-            .IgnoreQueryFilters()
-            .Where(x => equipmentAccessIds.Contains(x.Id))
-            .Select(x => x.Id)
-            .ToList();
-        var equipmentAccessesToCreate = equipmentAccesses
-            .Where(x => !equipmentAccessesAlreadyCreated.Contains(x.Id))
-            .ToList();
-    
-        if (equipmentAccessesToCreate.Any())
-            dbCtx.EquipmentAccesses.AddRange(equipmentAccessesToCreate);
+
+        var dbInterventions = dbCtx.EquipmentAccesses.IgnoreQueryFilters().ToList();
+
+        foreach (EquipmentAccess equipmentAccess in equipmentAccesses)
+        {
+            EquipmentAccess? exitingEquipmentAccess = dbInterventions
+                .SingleOrDefault(x => x.EmployeeId == equipmentAccess.EmployeeId &&
+                                      x.EquipmentId == equipmentAccess.EquipmentId);
+            
+            if (exitingEquipmentAccess == null)
+                dbCtx.EquipmentAccesses.Add(equipmentAccess);
+        }
     }
 }
