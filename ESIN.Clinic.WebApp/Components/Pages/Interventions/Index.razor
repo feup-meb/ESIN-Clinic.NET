@@ -9,16 +9,15 @@
 <h3>Interventions</h3>
 
 <div class="d-flex flex-wrap justify-content-center align-items-center py-2 col-md-8">
-    @* <QuickGrid Items="@FilteredItems" ResizableColumns=true Pagination="@pagination" GridTemplateColumns="1.2fr 1.2fr .7fr 1fr 1.2fr" Style="height: 405px;overflow:auto;"> *@
-    <QuickGrid Items="@FilteredItems" ItemKey="@(c => c.Id)" Class="table table-hover">
+    <QuickGrid Items="@FilteredItems" ItemKey="@(c => c.Id)" Pagination="@pagination" Class="table table-hover">
         <PropertyColumn Property="@(c => c.InterventionType)" Align="Align.Center" Class="py-2" Title="Intervention Type" />
         <PropertyColumn Property="@(c => c.ReportDate)" Align="Align.Center" Class="py-2" Title="Report Date" Format="dd/MM/yyy" />
         <PropertyColumn Property="@(c => c.Equipment.Name)" Sortable="true" Class="py-2" Title="Equipment Name">
-            @* <ColumnOptions> *@
-            @*     <div class="search-box"> *@
-            @*         <input type="search" Autofocus="true" @bind-Value="@nameFilter" @oninput="HandleCountryFilter" @bind-Value:after="HandleClear" Placeholder="Category name..." /> *@
-            @*     </div> *@
-            @* </ColumnOptions> *@
+            <ColumnOptions>
+                <div class="search-box">
+                    <input type="search" autofocus @bind="@nameFilter" @bind:event="oninput" placeholder="Equipment name..." />
+                </div>
+            </ColumnOptions>
         </PropertyColumn>
         <PropertyColumn Property="@(c => c.StartDate)" Align="Align.Center" Class="py-2" Title="Start Date" Format="dd/MM/yyy"/>
         <PropertyColumn Property="@(c => c.EndDate)" Align="Align.Center" Class="py-2" Title="End Date" Format="dd/MM/yyy"/>
@@ -37,4 +36,6 @@
     </QuickGrid>
 </div>
 
-@* <FluentPaginator State="@pagination" /> *@
+<div class="col-md-8">
+    <Paginator State="@pagination" />
+</div>
