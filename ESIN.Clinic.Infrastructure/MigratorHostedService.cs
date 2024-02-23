@@ -54,7 +54,6 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
         dbCtx.SaveChanges();
         
         AddInterventions(dbCtx);
-        AddEquipmentAccesses(dbCtx);
     }
 
     private static void SeedTestData(ClinicDbContext dbCtx)
@@ -208,15 +207,99 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
             {
                 ReportDate = new DateTime(2017, 12, 20),
                 Observations = "Monitor apresenta falha na medição de ECG.",
-                EvaluationDate = new DateTime(2017, 12, 27), 
+                EvaluationDate = new DateTime(2017, 12, 27),
                 InvoiceValue = 5000,
-                InterventionType = InterventionType.Corrective, 
+                InterventionType = InterventionType.Corrective,
+                StartDate = new DateTime(2018, 1, 10),
+                EndDate = new DateTime(2018, 1, 23),
+                EmployeeId = 3,
+                Employee = dbCtx.Employees.AsNoTracking().First(x => x.Id == 3),
+                EquipmentId = 4,
+                Equipment = dbCtx.Equipments.AsNoTracking().First(x => x.Id == 4)
+            },
+            new Intervention
+            {
+                ReportDate = new DateTime(2018, 1, 10),
+                Observations = "",
+                EvaluationDate = new DateTime(2018, 1, 12),
+                InvoiceValue = 2500,
+                InterventionType = InterventionType.Corrective,
+                StartDate = new DateTime(2018, 1, 28),
+                EndDate = new DateTime(2018, 2, 3), 
+                EmployeeId = 1, 
+                Employee = dbCtx.Employees.First(x => x.Id == 1),
+                EquipmentId = 1, 
+                Equipment = dbCtx.Equipments.First(x => x.Id == 1)
+            },
+            new Intervention
+            {
+                ReportDate = new DateTime(2018, 1, 20),
+                Observations = "",
+                EvaluationDate = new DateTime(2018, 1, 27),
+                InvoiceValue = 3000,
+                InterventionType = InterventionType.Corrective,
+                StartDate = new DateTime(2018, 2, 10),
+                EndDate = new DateTime(2018, 2, 23), 
+                EmployeeId = 1, 
+                Employee = dbCtx.Employees.First(x => x.Id == 1),
+                EquipmentId = 2, 
+                Equipment = dbCtx.Equipments.First(x => x.Id == 2)
+            },
+            new Intervention
+            {
+                ReportDate = new DateTime(2018, 12, 20),
+                Observations = "",
+                EvaluationDate = new DateTime(2018, 12, 27),
+                InvoiceValue = 1000,
+                InterventionType = InterventionType.Preventive,
+                StartDate = new DateTime(2019, 1, 10),
+                EndDate = new DateTime(2019, 1, 23), 
+                EmployeeId = 2, 
+                Employee = dbCtx.Employees.First(x => x.Id == 2),
+                EquipmentId = 3, 
+                Equipment = dbCtx.Equipments.First(x => x.Id == 3)
+            },
+            new Intervention
+            {
+                ReportDate = new DateTime(2019, 12, 20),
+                Observations = "",
+                EvaluationDate = new DateTime(2019, 12, 27),
+                InvoiceValue = 500,
+                InterventionType = InterventionType.Preventive,
+                StartDate = new DateTime(2020, 1, 10),
+                EndDate = new DateTime(2020, 1, 23), 
+                EmployeeId = 2, 
+                Employee = dbCtx.Employees.First(x => x.Id == 2),
+                EquipmentId = 4, 
+                Equipment = dbCtx.Equipments.First(x => x.Id == 4)
+            },
+            new Intervention
+            {
+                ReportDate = new DateTime(2020, 12, 20),
+                Observations = "",
+                EvaluationDate = new DateTime(2020, 12, 27),
+                InvoiceValue = 1250,
+                InterventionType = InterventionType.Corrective,
+                StartDate = new DateTime(2021, 1, 10),
+                EndDate = new DateTime(2021, 1, 23), 
+                EmployeeId = 3, 
+                Employee = dbCtx.Employees.First(x => x.Id == 3),
+                EquipmentId = 1, 
+                Equipment = dbCtx.Equipments.First(x => x.Id == 1)
+            },
+            new Intervention
+            {
+                ReportDate = new DateTime(2017, 12, 20),
+                Observations = "",
+                EvaluationDate = new DateTime(2017, 12, 27),
+                InvoiceValue = 1800,
+                InterventionType = InterventionType.Corrective,
                 StartDate = new DateTime(2018, 01, 10),
                 EndDate = new DateTime(2018, 01, 23), 
                 EmployeeId = 3, 
-                Employee = dbCtx.Employees.AsNoTracking().First(x => x.Id == 3),
-                EquipmentId = 4, 
-                Equipment = dbCtx.Equipments.AsNoTracking().First(x => x.Id == 4)
+                Employee = dbCtx.Employees.First(x => x.Id == 3),
+                EquipmentId = 3, 
+                Equipment = dbCtx.Equipments.First(x => x.Id == 3)
             }
         ];
 
@@ -232,31 +315,6 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
             
             if (exitingInterventions == null)
                 dbCtx.Interventions.Add(intervention);
-        }
-    }
-    
-    private static void AddEquipmentAccesses(ClinicDbContext dbCtx)
-    {
-        List<EquipmentAccess> equipmentAccesses =
-        [
-            new EquipmentAccess { EmployeeId = 1, Employee = dbCtx.Employees.First(x => x.Id == 1), EquipmentId = 1, Equipment = dbCtx.Equipments.First(x => x.Id == 1) },
-            new EquipmentAccess { EmployeeId = 1, Employee = dbCtx.Employees.First(x => x.Id == 1), EquipmentId = 2, Equipment = dbCtx.Equipments.First(x => x.Id == 2) },
-            new EquipmentAccess { EmployeeId = 2, Employee = dbCtx.Employees.First(x => x.Id == 2), EquipmentId = 3, Equipment = dbCtx.Equipments.First(x => x.Id == 3) },
-            new EquipmentAccess { EmployeeId = 2, Employee = dbCtx.Employees.First(x => x.Id == 2), EquipmentId = 4, Equipment = dbCtx.Equipments.First(x => x.Id == 4) },
-            new EquipmentAccess { EmployeeId = 3, Employee = dbCtx.Employees.First(x => x.Id == 3), EquipmentId = 1, Equipment = dbCtx.Equipments.First(x => x.Id == 1) },
-            new EquipmentAccess { EmployeeId = 3, Employee = dbCtx.Employees.First(x => x.Id == 3), EquipmentId = 3, Equipment = dbCtx.Equipments.First(x => x.Id == 3) }
-        ];
-
-        var dbInterventions = dbCtx.EquipmentAccesses.IgnoreQueryFilters().ToList();
-
-        foreach (EquipmentAccess equipmentAccess in equipmentAccesses)
-        {
-            EquipmentAccess? exitingEquipmentAccess = dbInterventions
-                .SingleOrDefault(x => x.EmployeeId == equipmentAccess.EmployeeId &&
-                                      x.EquipmentId == equipmentAccess.EquipmentId);
-            
-            if (exitingEquipmentAccess == null)
-                dbCtx.EquipmentAccesses.Add(equipmentAccess);
         }
     }
 }
