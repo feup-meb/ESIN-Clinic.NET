@@ -1,7 +1,8 @@
-﻿namespace ESIN.Clinic.Domain.Entities;
+﻿using ESIN.Clinic.Domain.Common;
 
-public class UserRole
+namespace ESIN.Clinic.Domain.Entities;
+
+public class UserRole : BaseEntity
 {
-    public int Id { get; set; }
     public required string Name { get; set; }
 }

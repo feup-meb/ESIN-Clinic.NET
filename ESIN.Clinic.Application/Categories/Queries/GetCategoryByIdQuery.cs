@@ -1,11 +1,10 @@
 ﻿using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Domain.Entities;
 
-namespace ESIN.Clinic.Application.Categories;
+namespace ESIN.Clinic.Application.Categories.Queries;
 
 public class GetCategoryByIdQuery(ICategoryRepository categoryRepository)
 {
-    
     public async Task<Category> GetCategoryByIdAsync(int id)
     {
         var category = await categoryRepository.GetCategoryById(id);

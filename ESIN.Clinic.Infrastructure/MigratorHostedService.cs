@@ -214,7 +214,9 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
                 StartDate = new DateTime(2018, 01, 10),
                 EndDate = new DateTime(2018, 01, 23), 
                 EmployeeId = 3, 
-                EquipmentId = 4
+                Employee = dbCtx.Employees.AsNoTracking().First(x => x.Id == 3),
+                EquipmentId = 4, 
+                Equipment = dbCtx.Equipments.AsNoTracking().First(x => x.Id == 4)
             }
         ];
 

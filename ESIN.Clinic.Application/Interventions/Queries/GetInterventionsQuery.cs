@@ -1,7 +1,7 @@
 ﻿using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Domain.Entities;
 
-namespace ESIN.Clinic.Application.Interventions;
+namespace ESIN.Clinic.Application.Interventions.Queries;
 
 public class GetInterventionsQuery(IInterventionRepository interventionRepository)
 {

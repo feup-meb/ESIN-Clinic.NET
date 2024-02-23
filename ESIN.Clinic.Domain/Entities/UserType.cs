@@ -1,7 +1,8 @@
-﻿namespace ESIN.Clinic.Domain.Entities;
+﻿using ESIN.Clinic.Domain.Common;
 
-public class UserType
+namespace ESIN.Clinic.Domain.Entities;
+
+public class UserType : BaseEntity
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
+    public required string Name { get; set; }
 }

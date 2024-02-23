@@ -6,7 +6,7 @@ namespace ESIN.Clinic.WebApp.Components.Pages.Categories;
 public partial class CategoryDetails
 {
     [Parameter] public int? Id { get; set; }
-    private Category item = new();
+    private Category? item;
     
     protected override async Task OnInitializedAsync()
     {

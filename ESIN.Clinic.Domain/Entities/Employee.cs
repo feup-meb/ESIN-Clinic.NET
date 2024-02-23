@@ -1,9 +1,10 @@
-﻿namespace ESIN.Clinic.Domain.Entities;
+﻿using ESIN.Clinic.Domain.Common;
 
-public class Employee
+namespace ESIN.Clinic.Domain.Entities;
+
+public class Employee : BaseEntity
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
+    public required string Name { get; set; }
     public DateTime? BirthDate { get; set; }
     public string? Address { get; set; }
     public required string EmployeeNumber { get; set; }

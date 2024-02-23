@@ -1,7 +1,7 @@
 ﻿using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Domain.Entities;
 
-namespace ESIN.Clinic.Application.Equipments;
+namespace ESIN.Clinic.Application.Equipments.Queries;
 
 public class GetEquipmentsQuery(IEquipmentRepository equipmentRepository)
 {

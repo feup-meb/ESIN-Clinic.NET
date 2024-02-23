@@ -1,8 +1,9 @@
-﻿namespace ESIN.Clinic.Domain.Entities;
+﻿using ESIN.Clinic.Domain.Common;
 
-public class HospitalUnit
+namespace ESIN.Clinic.Domain.Entities;
+
+public class HospitalUnit : BaseEntity
 {
-    public int Id { get; set; }
     public required string Name { get; set; }
     public string? Room { get; set; }
 }

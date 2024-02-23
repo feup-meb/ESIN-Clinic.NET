@@ -7,6 +7,7 @@ namespace ESIN.Clinic.Infrastructure.Repositories;
 
 public class EquipmentRepository(ClinicDbContext dbContext) : IEquipmentRepository
 {
+    // TODO: AsSplitQuery()?
     public async Task<IEnumerable<Equipment>> GetEquipments()
         => await dbContext.Equipments
             .Include(x => x.HospitalUnit)

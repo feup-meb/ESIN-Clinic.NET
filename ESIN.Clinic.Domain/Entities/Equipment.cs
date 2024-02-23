@@ -1,8 +1,9 @@
-﻿namespace ESIN.Clinic.Domain.Entities;
+﻿using ESIN.Clinic.Domain.Common;
 
-public class Equipment
+namespace ESIN.Clinic.Domain.Entities;
+
+public class Equipment: BaseEntity
 {
-    public int Id { get; set; }
     public required string SerialNumber { get; set; }
     public required string Name { get; set; }
     public required string Model { get; set; }

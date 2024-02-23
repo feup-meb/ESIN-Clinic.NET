@@ -8,7 +8,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ESIN.Clinic.Domain\ESIN.Clinic.Domain.csproj" />
-      <ProjectReference Include="..\ESIN.Clinic.Infrastructure\ESIN.Clinic.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>

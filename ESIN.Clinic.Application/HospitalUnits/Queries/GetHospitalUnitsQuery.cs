@@ -1,7 +1,7 @@
 ﻿using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Domain.Entities;
 
-namespace ESIN.Clinic.Application.HospitalUnits;
+namespace ESIN.Clinic.Application.HospitalUnits.Queries;
 
 public class GetHospitalUnitsQuery(IHospitalUnitRepository hospitalUnitRepository)
 {

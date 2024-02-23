@@ -10,7 +10,7 @@ Welcome to your new app.
 
 <hr/>
 
-<p>Device @equipment.Id</p>
+<p>Device @equipment!.Id</p>
 
 <ul>
     <li>@equipment.Name</li>
@@ -20,13 +20,12 @@ Welcome to your new app.
 </ul>
 
 @code {
-    private Device equipment;
+    private Device? equipment;
 
     protected override Task OnInitializedAsync()
     {
         equipment = new Device
         {
-            Id = 1,
             SerialNumber = "abc1234",
             Name = "My device",
             Model = "Latest",

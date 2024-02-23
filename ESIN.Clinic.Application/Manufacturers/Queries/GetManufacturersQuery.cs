@@ -1,7 +1,7 @@
 ﻿using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Domain.Entities;
 
-namespace ESIN.Clinic.Application.Manufacturers;
+namespace ESIN.Clinic.Application.Manufacturers.Queries;
 
 public class GetManufacturersQuery(IManufacturerRepository manufacturerRepository)
 {

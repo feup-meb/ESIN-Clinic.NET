@@ -1,8 +1,9 @@
-﻿namespace ESIN.Clinic.Domain.Entities;
+﻿using ESIN.Clinic.Domain.Common;
 
-public class Category
+namespace ESIN.Clinic.Domain.Entities;
+
+public sealed class Category : BaseEntity
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
+    public required string Name { get; set; }
     public string? Description { get; set; }
 }

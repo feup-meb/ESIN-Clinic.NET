@@ -7,6 +7,7 @@ namespace ESIN.Clinic.Infrastructure.Repositories;
 
 public class InterventionRepository(ClinicDbContext dbContext) : IInterventionRepository
 {
+    // TODO: AsSplitQuery()?
     public async Task<IEnumerable<Intervention>> GetInterventions()
         => await dbContext.Interventions
             .Include(x=>x.Equipment)

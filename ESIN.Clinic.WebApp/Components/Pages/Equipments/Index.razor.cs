@@ -5,7 +5,6 @@ namespace ESIN.Clinic.WebApp.Components.Pages.Equipments;
 
 public partial class Index()
 {
-    private bool _clearItems = false;
     private IQueryable<Equipment>? items;
     private PaginationState pagination = new() { ItemsPerPage = 10 };
     private string nameFilter = string.Empty;
