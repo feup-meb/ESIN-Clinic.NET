@@ -1,6 +1,4 @@
-﻿using ESIN.Clinic.Domain.Entities;
-
-namespace ESIN.Clinic.CrossCutting.Categories;
+﻿namespace ESIN.Clinic.CrossCutting.Categories;
 
 public class GetCategoriesQueryResponse
 {

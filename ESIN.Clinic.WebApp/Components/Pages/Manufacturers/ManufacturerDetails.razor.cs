@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace ESIN.Clinic.WebApp.Components.Pages.Manufacturers;
 
-public partial class ManufacturerDetail
+public partial class ManufacturerDetails
 {
     [Parameter] public int? Id { get; set; }
     private GetManufacturerByIdQueryResponse? item;

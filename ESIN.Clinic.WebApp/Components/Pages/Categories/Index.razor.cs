@@ -1,5 +1,4 @@
 ﻿using ESIN.Clinic.CrossCutting.Categories;
-using ESIN.Clinic.Domain.Entities;
 using Microsoft.AspNetCore.Components.QuickGrid;
 
 namespace ESIN.Clinic.WebApp.Components.Pages.Categories;
