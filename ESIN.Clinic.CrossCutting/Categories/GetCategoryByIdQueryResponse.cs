@@ -1,6 +1,6 @@
 ﻿namespace ESIN.Clinic.CrossCutting.Categories;
 
-public class GetCategoryByIdQueryResult
+public class GetCategoryByIdQueryResponse
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;

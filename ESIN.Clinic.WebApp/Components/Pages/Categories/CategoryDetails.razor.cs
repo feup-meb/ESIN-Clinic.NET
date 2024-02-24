@@ -6,13 +6,15 @@ namespace ESIN.Clinic.WebApp.Components.Pages.Categories;
 public partial class CategoryDetails
 {
     [Parameter] public int? Id { get; set; }
-    private Category? item;
+    private GetCategoryByIdQueryResponse? item;
     
     protected override async Task OnInitializedAsync()
     {
         if (Id == null) 
             return;
+
+        var http = new HttpClient();
         
-        item = await GetCategoryByIdQuery.GetCategoryByIdAsync((int)Id);
+        item = await http.GetFromJsonAsync<GetCategoryByIdQueryResponse>($"http://localhost:5240/categories/{Id}");
     }
 }
