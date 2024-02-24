@@ -8,13 +8,13 @@ namespace ESIN.Clinic.Infrastructure.Repositories;
 public class EquipmentService(ClinicDbContext dbContext) : IEquipmentService
 {
     // TODO: AsSplitQuery()?
-    public async Task<IEnumerable<Equipment>> GetEquipments()
+    public async Task<List<Equipment>> GetEquipments()
         => await dbContext.Equipments
             .Include(x => x.HospitalUnit)
             .Include(x => x.Manufacturer)
             .ToListAsync();
 
-    public async Task<Equipment?> GetEquipmentById(int id)
+    public async Task<Equipment> GetEquipmentById(int id)
     {
         Equipment? category = await dbContext.Equipments
             .FirstOrDefaultAsync(x => x.Id == id);

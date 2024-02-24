@@ -7,12 +7,18 @@ namespace ESIN.Clinic.Infrastructure.Repositories;
 
 public class HospitalUnitService(ClinicDbContext dbContext) : IHospitalUnitService
 {
-    public async Task<IEnumerable<HospitalUnit>> GetHospitalUnits()
+    public async Task<List<HospitalUnit>> GetHospitalUnits()
         => await dbContext.HospitalUnits.ToListAsync();
 
-    public async Task<HospitalUnit?> GetHospitalUnitById(int id)
+    public async Task<HospitalUnit> GetHospitalUnitById(int id)
     {
-        throw new NotImplementedException();
+        HospitalUnit? hospitalUnit = await dbContext.HospitalUnits
+            .FirstOrDefaultAsync(x => x.Id == id);
+        
+        if (hospitalUnit == default)
+            throw new InvalidOperationException("Invalid data...");
+        
+        return hospitalUnit;
     }
 
     public async Task<HospitalUnit> AddHospitalUnit(HospitalUnit hospitalUnit)

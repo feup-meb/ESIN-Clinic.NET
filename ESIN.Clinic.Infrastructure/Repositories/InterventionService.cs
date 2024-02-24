@@ -8,13 +8,13 @@ namespace ESIN.Clinic.Infrastructure.Repositories;
 public class InterventionService(ClinicDbContext dbContext) : IInterventionService
 {
     // TODO: AsSplitQuery()?
-    public async Task<IEnumerable<Intervention>> GetInterventions()
+    public async Task<List<Intervention>> GetInterventions()
         => await dbContext.Interventions
             .Include(x=>x.Equipment)
             .Include(x=>x.Employee)
             .ToListAsync();
 
-    public async Task<Intervention?> GetInterventionById(int id)
+    public async Task<Intervention> GetInterventionById(int id)
     {
         throw new NotImplementedException();
     }

@@ -5,27 +5,27 @@ namespace ESIN.Clinic.Infrastructure.Repositories;
 
 public class EmployeeService : IEmployeeService
 {
-    public Task<IEnumerable<Employee>> GetEmployees()
+    public async Task<List<Employee>> GetEmployees()
     {
         throw new NotImplementedException();
     }
 
-    public Task<Employee?> GetEmployeeById(int id)
+    public async Task<Employee> GetEmployeeById(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Employee> AddEmployee(Employee employee)
+    public async Task<Employee> AddEmployee(Employee employee)
     {
         throw new NotImplementedException();
     }
 
-    public Task UpdateEmployee(Employee employee)
+    public async Task UpdateEmployee(Employee employee)
     {
         throw new NotImplementedException();
     }
 
-    public Task DeleteEmployeeById(int id)
+    public async Task DeleteEmployeeById(int id)
     {
         throw new NotImplementedException();
     }
