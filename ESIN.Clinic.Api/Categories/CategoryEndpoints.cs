@@ -26,7 +26,7 @@ public static class CategoryEndpoints
         endpoints.MapGet("/categories/{id:int}",
                          async (ICategoryService categoryService, int id) =>
                          {
-                             GetCategoriesQueryResponse result = CategoryMapperService.ToResponse(await categoryService.GetCategoryById(id));
+                             GetCategoryByIdQueryResponse result = CategoryMapperService.ToResponse(await categoryService.GetCategoryById(id));
 
                              return Results.Ok(result);
                          })

@@ -22,9 +22,9 @@ public static class CategoryMapperService
         return response;
     }
     
-    public static GetCategoriesQueryResponse ToResponse(Category category)
+    public static GetCategoryByIdQueryResponse ToResponse(Category category)
     {
-        var response = new GetCategoriesQueryResponse
+        var response = new GetCategoryByIdQueryResponse
         {
             Id = category.Id,
             Name = category.Name,
