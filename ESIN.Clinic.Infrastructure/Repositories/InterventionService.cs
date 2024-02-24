@@ -16,7 +16,15 @@ public class InterventionService(ClinicDbContext dbContext) : IInterventionServi
 
     public async Task<Intervention> GetInterventionById(int id)
     {
-        throw new NotImplementedException();
+        Intervention? intervention = await dbContext.Interventions
+            .Include(x=>x.Equipment)
+            .Include(x=>x.Employee)
+            .FirstOrDefaultAsync(x => x.Id == id);
+        
+        if (intervention == default)
+            throw new InvalidOperationException("Invalid data...");
+        
+        return intervention;
     }
 
     public async Task<Intervention> AddIntervention(Intervention intervention)
