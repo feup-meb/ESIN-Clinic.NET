@@ -1,6 +1,4 @@
-using ESIN.Clinic.Application;
 using ESIN.Clinic.CrossCutting;
-using ESIN.Clinic.Infrastructure;
 using ESIN.Clinic.WebApp.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,10 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services
-    .AddInfrastructure(builder.Configuration)
-    .AddApplicationServices()
-    .AddRepositoryServices();
+builder.Services.AddServices(builder.Configuration);
 
 var app = builder.Build();
 

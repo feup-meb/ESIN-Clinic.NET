@@ -1,4 +1,6 @@
-using ESIN.Clinic.Infrastructure;
+using ESIN.Clinic.Api;
+using ESIN.Clinic.CrossCutting;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services
-    .AddInfrastructure(builder.Configuration);
+builder.Services.AddServices(builder.Configuration);
     
 var app = builder.Build();
 

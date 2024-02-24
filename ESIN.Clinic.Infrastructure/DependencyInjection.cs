@@ -1,4 +1,6 @@
-﻿using ESIN.Clinic.Infrastructure.Context;
+﻿using ESIN.Clinic.Domain.Abstractions;
+using ESIN.Clinic.Infrastructure.Context;
+using ESIN.Clinic.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +15,18 @@ public static class DependencyInjection
         services.AddDbContext<ClinicDbContext>(opt => opt.UseSqlServer(connectionString));
         
         services.AddHostedService<MigratorHostedService>();
+        
+        return services;
+    }
+    
+    public static IServiceCollection AddRepositoryServices(this IServiceCollection services)
+    {
+        services.AddTransient<IHospitalUnitService, HospitalUnitService>();
+        services.AddTransient<ICategoryService, CategoryService>();
+        services.AddTransient<IManufacturerService, ManufacturerService>();
+        services.AddTransient<IEmployeeService, EmployeeService>();
+        services.AddTransient<IEquipmentService, EquipmentService>();
+        services.AddTransient<IInterventionService, InterventionService>();
         
         return services;
     }

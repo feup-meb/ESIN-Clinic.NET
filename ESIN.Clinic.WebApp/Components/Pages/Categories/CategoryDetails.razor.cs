@@ -1,4 +1,4 @@
-﻿using ESIN.Clinic.Domain.Entities;
+﻿using ESIN.Clinic.CrossCutting.Categories;
 using Microsoft.AspNetCore.Components;
 
 namespace ESIN.Clinic.WebApp.Components.Pages.Categories;
