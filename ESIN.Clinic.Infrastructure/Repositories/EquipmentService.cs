@@ -10,6 +10,7 @@ public class EquipmentService(ClinicDbContext dbContext) : IEquipmentService
     // TODO: AsSplitQuery()?
     public async Task<List<Equipment>> GetEquipments()
         => await dbContext.Equipments
+            .Include(x => x.Category)
             .Include(x => x.HospitalUnit)
             .Include(x => x.Manufacturer)
             .ToListAsync();
@@ -17,6 +18,9 @@ public class EquipmentService(ClinicDbContext dbContext) : IEquipmentService
     public async Task<Equipment> GetEquipmentById(int id)
     {
         Equipment? category = await dbContext.Equipments
+            .Include(x => x.Category)
+            .Include(x => x.HospitalUnit)
+            .Include(x => x.Manufacturer)
             .FirstOrDefaultAsync(x => x.Id == id);
         
         if (category == default)

@@ -1,4 +1,5 @@
 ﻿using ESIN.Clinic.Api.Categories;
+using ESIN.Clinic.Api.Equipments;
 using ESIN.Clinic.Api.HospitalUnits;
 using ESIN.Clinic.Api.Manufacturers;
 using ESIN.Clinic.Api.WeatherForecasts;
@@ -13,7 +14,7 @@ public static class EndpointsMapper
         
         app.RegisterCategoryEndpoints();
         // app.RegisterEmployeeEndpoints();
-        // app.RegisterEquipmentEndpoints();
+        app.RegisterEquipmentEndpoints();
         app.RegisterHospitalUnitEndpoints();
         // app.RegisterInterventionEndpoints();
         app.RegisterManufacturerEndpoints();
