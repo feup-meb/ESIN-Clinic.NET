@@ -7,12 +7,18 @@ namespace ESIN.Clinic.Infrastructure.Repositories;
 
 public class ManufacturerService(ClinicDbContext dbContext) : IManufacturerService
 {
-    public async Task<IEnumerable<Manufacturer>> GetManufacturers()
+    public async Task<List<Manufacturer>> GetManufacturers()
         => await dbContext.Manufacturers.ToListAsync();
 
-    public async Task<Manufacturer?> GetManufacturerById(int id)
+    public async Task<Manufacturer> GetManufacturerById(int id)
     {
-        throw new NotImplementedException();
+        Manufacturer? manufacturer = await dbContext.Manufacturers
+            .FirstOrDefaultAsync(x => x.Id == id);
+        
+        if (manufacturer == default)
+            throw new InvalidOperationException("Invalid data...");
+        
+        return manufacturer;
     }
 
     public async Task<Manufacturer> AddManufacturer(Manufacturer manufacturer)

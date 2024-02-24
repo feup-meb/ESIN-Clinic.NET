@@ -1,4 +1,5 @@
 ﻿using ESIN.Clinic.Api.Categories;
+using ESIN.Clinic.Api.Manufacturers;
 using ESIN.Clinic.Api.WeatherForecasts;
 
 namespace ESIN.Clinic.Api;
@@ -14,7 +15,7 @@ public static class EndpointsMapper
         // app.RegisterEquipmentEndpoints();
         // app.RegisterHospitalUnitEndpoints();
         // app.RegisterInterventionEndpoints();
-        // app.RegisterManufacturerEndpoints();
+        app.RegisterManufacturerEndpoints();
         // app.RegisterUserRoleEndpoints();
     }
 }
