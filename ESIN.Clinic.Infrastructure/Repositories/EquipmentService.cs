@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ESIN.Clinic.Infrastructure.Repositories;
 
-public class EquipmentRepository(ClinicDbContext dbContext) : IEquipmentRepository
+public class EquipmentService(ClinicDbContext dbContext) : IEquipmentService
 {
     // TODO: AsSplitQuery()?
     public async Task<IEnumerable<Equipment>> GetEquipments()

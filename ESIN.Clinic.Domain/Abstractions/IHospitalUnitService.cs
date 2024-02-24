@@ -2,7 +2,7 @@
 
 namespace ESIN.Clinic.Domain.Abstractions;
 
-public interface IHospitalUnitRepository
+public interface IHospitalUnitService
 {
     Task<IEnumerable<HospitalUnit>> GetHospitalUnits();
     Task<HospitalUnit?> GetHospitalUnitById(int id);

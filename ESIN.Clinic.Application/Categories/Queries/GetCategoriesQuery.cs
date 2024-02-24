@@ -10,11 +10,11 @@ namespace ESIN.Clinic.Application.Categories.Queries;
 // }
 
 
-public class GetCategoriesQuery(ICategoryRepository categoryRepository)
+public class GetCategoriesQuery(ICategoryService categoryService)
 {
     public async Task<List<Category>> GetCategoriesAsync()
     {
-        var categories = await categoryRepository.GetCategories();
+        var categories = await categoryService.GetCategories();
 
         if (!categories.Any())
             throw new Exception("No categories found.");

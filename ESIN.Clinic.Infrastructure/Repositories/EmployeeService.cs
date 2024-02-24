@@ -3,7 +3,7 @@ using ESIN.Clinic.Domain.Entities;
 
 namespace ESIN.Clinic.Infrastructure.Repositories;
 
-public class EmployeeRepository : IEmployeeRepository
+public class EmployeeService : IEmployeeService
 {
     public Task<IEnumerable<Employee>> GetEmployees()
     {

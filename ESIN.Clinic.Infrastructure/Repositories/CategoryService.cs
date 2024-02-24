@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ESIN.Clinic.Infrastructure.Repositories;
 
-public class CategoryRepository(ClinicDbContext dbContext) : ICategoryRepository
+public class CategoryService(ClinicDbContext dbContext) : ICategoryService
 {
-    public async Task<IEnumerable<Category>> GetCategories()
+    public async Task<List<Category>> GetCategories()
         => await dbContext.Categories.ToListAsync();
         
 
-    public async Task<Category?> GetCategoryById(int id)
+    public async Task<Category> GetCategoryById(int id)
     {
         Category? category = await dbContext.Categories
             .FirstOrDefaultAsync(x => x.Id == id);

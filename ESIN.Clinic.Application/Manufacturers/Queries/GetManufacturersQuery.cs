@@ -3,11 +3,11 @@ using ESIN.Clinic.Domain.Entities;
 
 namespace ESIN.Clinic.Application.Manufacturers.Queries;
 
-public class GetManufacturersQuery(IManufacturerRepository manufacturerRepository)
+public class GetManufacturersQuery(IManufacturerService manufacturerService)
 {
     public async Task<List<Manufacturer>> GetManufacturersAsync()
     {
-        var manufacturers = await manufacturerRepository.GetManufacturers();
+        var manufacturers = await manufacturerService.GetManufacturers();
 
         if (!manufacturers.Any())
             throw new Exception("No manufacturers found.");

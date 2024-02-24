@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ESIN.Clinic.Infrastructure.Repositories;
 
-public class ManufacturerRepository(ClinicDbContext dbContext) : IManufacturerRepository
+public class ManufacturerService(ClinicDbContext dbContext) : IManufacturerService
 {
     public async Task<IEnumerable<Manufacturer>> GetManufacturers()
         => await dbContext.Manufacturers.ToListAsync();

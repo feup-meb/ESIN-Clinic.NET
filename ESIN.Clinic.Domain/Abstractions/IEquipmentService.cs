@@ -2,7 +2,7 @@
 
 namespace ESIN.Clinic.Domain.Abstractions;
 
-public interface IEquipmentRepository
+public interface IEquipmentService
 {
     Task<IEnumerable<Equipment>> GetEquipments();
     Task<Equipment?> GetEquipmentById(int id);

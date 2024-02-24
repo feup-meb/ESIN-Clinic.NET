@@ -3,11 +3,11 @@ using ESIN.Clinic.Domain.Entities;
 
 namespace ESIN.Clinic.Application.Interventions.Queries;
 
-public class GetInterventionsQuery(IInterventionRepository interventionRepository)
+public class GetInterventionsQuery(IInterventionService interventionService)
 {
     public async Task<List<Intervention>> GetInterventionsAsync()
     {
-        var interventions = await interventionRepository.GetInterventions();
+        var interventions = await interventionService.GetInterventions();
 
         if (!interventions.Any())
             throw new Exception("No interventions found.");

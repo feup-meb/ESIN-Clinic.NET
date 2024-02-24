@@ -2,7 +2,7 @@
 
 namespace ESIN.Clinic.Domain.Abstractions;
 
-public interface IEmployeeRepository
+public interface IEmployeeService
 {
     Task<IEnumerable<Employee>> GetEmployees();
     Task<Employee?> GetEmployeeById(int id);
