@@ -1,0 +1,13 @@
+﻿@page "/Units/{Id:int?}"
+
+<h3>HospitalUnitDetails</h3>
+
+<p>Category <strong>@Id</strong></p>
+
+@if (item != null)
+{
+    <ul>
+        <li><strong>Name:</strong>&nbsp;@item.Name</li>
+        <li><strong>Room:</strong>&nbsp;@item.Room</li>
+    </ul>
+}
