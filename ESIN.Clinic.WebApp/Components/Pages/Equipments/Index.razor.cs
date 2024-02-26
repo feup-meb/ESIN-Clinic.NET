@@ -15,6 +15,6 @@ public partial class Index()
 
     protected override async Task OnInitializedAsync()
     {
-        items = (await _equipmentService.GetEquipments()).AsQueryable();
+        items = (await EquipmentService.GetEquipments()).AsQueryable();
     }
 }

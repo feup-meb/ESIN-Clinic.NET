@@ -14,6 +14,6 @@ public partial class Index
 
     protected override async Task OnInitializedAsync()
     {
-        items = (await _categoryService.GetCategories()).AsQueryable();
+        items = (await CategoryService.GetCategories()).AsQueryable();
     }
 }

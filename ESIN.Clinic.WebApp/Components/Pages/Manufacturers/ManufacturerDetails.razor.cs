@@ -13,6 +13,6 @@ public partial class ManufacturerDetails
         if (Id == null)
             return;
 
-        item = await _manufacturerService.GetManufacturerById((int)Id);
+        item = await ManufacturerService.GetManufacturerById((int)Id);
     }
 }

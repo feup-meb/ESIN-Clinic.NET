@@ -13,6 +13,6 @@ public partial class CategoryDetails
         if (Id == null)
             return;
         
-        item = await _categoryService.GetCategoryById((int)Id);
+        item = await CategoryService.GetCategoryById((int)Id);
     }
 }

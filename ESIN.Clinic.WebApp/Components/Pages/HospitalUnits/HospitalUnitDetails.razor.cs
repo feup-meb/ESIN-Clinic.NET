@@ -13,6 +13,6 @@ public partial class HospitalUnitDetails
         if (Id == null)
             return;
 
-        item = await _hospitalUnitService.GetHospitalUnitById((int)Id);
+        item = await HospitalUnitService.GetHospitalUnitById((int)Id);
     }
 }

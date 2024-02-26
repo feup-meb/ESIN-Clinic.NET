@@ -13,6 +13,6 @@ public partial class InterventionDetails
         if (Id == null)
             return;
 
-        item = await _interventionService.GetInterventionById((int)Id);
+        item = await InterventionService.GetInterventionById((int)Id);
     }
 }

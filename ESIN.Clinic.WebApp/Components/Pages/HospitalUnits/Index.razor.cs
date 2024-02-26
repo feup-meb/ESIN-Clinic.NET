@@ -14,6 +14,6 @@ public partial class Index
 
     protected override async Task OnInitializedAsync()
     {
-        items = (await _hospitalUnitService.GetHospitalUnits()).AsQueryable();
+        items = (await HospitalUnitService.GetHospitalUnits()).AsQueryable();
     }
 }

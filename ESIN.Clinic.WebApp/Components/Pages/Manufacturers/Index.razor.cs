@@ -16,6 +16,6 @@ public partial class Index
     {
         var http = new HttpClient();
         
-        items = (await _manufacturerService.GetManufacturers()).AsQueryable();
+        items = (await ManufacturerService.GetManufacturers()).AsQueryable();
     }
 }

@@ -13,6 +13,6 @@ public partial class EquipmentDetails
         if (Id == null)
             return;
         
-        item = await _equipmentService.GetEquipmentById((int)Id);
+        item = await EquipmentService.GetEquipmentById((int)Id);
     }
 }
