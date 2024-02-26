@@ -2,10 +2,10 @@
 @rendermode InteractiveServer
 
 @using Microsoft.AspNetCore.Components.QuickGrid
-@using ESIN.Clinic.Application.Manufacturers.Queries
+@using ESIN.Clinic.Domain.Abstractions
 @using Microsoft.IdentityModel.Tokens
 
-@inject GetManufacturersQuery getManufacturersQuery
+@inject IManufacturerService _manufacturerService
 
 <h3>Manufacturers</h3>
 

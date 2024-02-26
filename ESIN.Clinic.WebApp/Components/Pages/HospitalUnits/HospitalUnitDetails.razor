@@ -1,5 +1,8 @@
 ﻿@page "/Units/{Id:int?}"
 
+@using ESIN.Clinic.Domain.Abstractions
+@inject IHospitalUnitService _hospitalUnitService;
+
 <h3>HospitalUnitDetails</h3>
 
 <p>Hospital Unit <strong>@Id</strong></p>

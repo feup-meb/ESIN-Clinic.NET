@@ -1,5 +1,8 @@
 ﻿@page "/Manufacturers/{Id:int?}"
 
+@using ESIN.Clinic.Domain.Abstractions
+@inject IManufacturerService _manufacturerService
+
 <h3>Manufacturer Detail</h3>
 
 <p>Manufacturer <strong>@Id</strong></p>

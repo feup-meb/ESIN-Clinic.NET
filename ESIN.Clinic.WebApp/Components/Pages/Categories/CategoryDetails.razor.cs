@@ -1,4 +1,4 @@
-﻿using ESIN.Clinic.CrossCutting.Categories;
+﻿using ESIN.Clinic.Domain.Entities;
 using Microsoft.AspNetCore.Components;
 
 namespace ESIN.Clinic.WebApp.Components.Pages.Categories;
@@ -6,15 +6,13 @@ namespace ESIN.Clinic.WebApp.Components.Pages.Categories;
 public partial class CategoryDetails
 {
     [Parameter] public int? Id { get; set; }
-    private GetCategoryByIdQueryResponse? item;
+    private Category? item;
     
     protected override async Task OnInitializedAsync()
     {
-        if (Id == null) 
+        if (Id == null)
             return;
-
-        var http = new HttpClient();
         
-        item = await http.GetFromJsonAsync<GetCategoryByIdQueryResponse>($"http://localhost:5240/categories/{Id}");
+        item = await _categoryService.GetCategoryById((int)Id);
     }
 }

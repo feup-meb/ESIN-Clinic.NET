@@ -1,5 +1,8 @@
 ﻿@page "/Categories/{Id:int?}"
 
+@using ESIN.Clinic.Domain.Abstractions
+@inject ICategoryService _categoryService
+
 <h3>Category Detail</h3>
 
 <p>Category <strong>@Id</strong></p>
