@@ -1,18 +1,17 @@
-﻿using ESIN.Clinic.Domain.Entities;
+﻿using ESIN.Clinic.Application.Manufacturers.Queries;
+using ESIN.Clinic.CrossCutting.Features.Manufacturers;
 using Microsoft.AspNetCore.Components;
 
 namespace ESIN.Clinic.WebApp.Components.Pages.Manufacturers;
 
 public partial class ManufacturerDetails
 {
-    [Parameter] public int? Id { get; set; }
-    private Manufacturer? item;
+    [Parameter] public int Id { get; set; }
+    private GetManufacturerByIdQueryResponse? item;
 
     protected override async Task OnInitializedAsync()
     {
-        if (Id == null)
-            return;
-
-        item = await ManufacturerService.GetManufacturerById((int)Id);
+        var query = new GetManufacturerByIdQuery(ManufacturerRepository);
+        item = await query.GetCategoryByIdAsync(Id);
     }
 }

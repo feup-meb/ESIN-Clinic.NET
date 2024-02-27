@@ -1,17 +1,21 @@
-﻿using ESIN.Clinic.Domain.Abstractions;
+﻿using ESIN.Clinic.CrossCutting.Features.Manufacturers;
+using ESIN.Clinic.CrossCutting.Services;
+using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Domain.Entities;
 
 namespace ESIN.Clinic.Application.Manufacturers.Queries;
 
-public class GetManufacturersQuery(IManufacturerService manufacturerService)
+public class GetManufacturersQuery(IManufacturerRepository manufacturerRepository)
 {
-    public async Task<List<Manufacturer>> GetManufacturersAsync()
+    public async Task<List<GetManufacturersQueryResponse>> GetManufacturersAsync()
     {
-        var manufacturers = await manufacturerService.GetManufacturers();
+        List<Manufacturer> manufacturers = await manufacturerRepository.GetManufacturers();
 
-        if (!manufacturers.Any())
+        if (manufacturers.Count == 0)
             throw new Exception("No manufacturers found.");
 
-        return manufacturers.ToList();
+        List<GetManufacturersQueryResponse> manufacturersResult = manufacturers.MapToResponse();
+
+        return manufacturersResult.ToList();
     }
 }

@@ -6,7 +6,7 @@ namespace ESIN.Clinic.CrossCutting.Services;
 
 public static class ManufacturerMapperService
 {
-    public static List<GetManufacturersQueryResponse> ToResponse(List<Manufacturer> manufacturers)
+    public static List<GetManufacturersQueryResponse> MapToResponse(this List<Manufacturer> manufacturers)
     {
         if(manufacturers.IsNullOrEmpty())
             return [];
@@ -25,16 +25,16 @@ public static class ManufacturerMapperService
         return response;
     }
     
-    public static GetManufacturerByIdQueryResponse ToResponse(Manufacturer x)
+    public static GetManufacturerByIdQueryResponse MapToResponse(this Manufacturer manufacturer)
     {
         var response = new GetManufacturerByIdQueryResponse
         {
-            Id = x.Id,
-            Name = x.Name,
-            Email = x.Email,
-            PhoneNumber = x.PhoneNumber,
-            MobilePhoneNumber = x.MobilePhoneNumber,
-            Address = x.Address
+            Id = manufacturer.Id,
+            Name = manufacturer.Name,
+            Email = manufacturer.Email,
+            PhoneNumber = manufacturer.PhoneNumber,
+            MobilePhoneNumber = manufacturer.MobilePhoneNumber,
+            Address = manufacturer.Address
         };
 
         return response;

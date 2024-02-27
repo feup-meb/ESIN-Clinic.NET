@@ -2,7 +2,7 @@
 
 namespace ESIN.Clinic.Domain.Abstractions;
 
-public interface IManufacturerService
+public interface IManufacturerRepository
 {
     Task<List<Manufacturer>> GetManufacturers();
     Task<Manufacturer> GetManufacturerById(int id);
