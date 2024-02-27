@@ -22,7 +22,7 @@ public static class DependencyInjection
     public static IServiceCollection AddRepositoryServices(this IServiceCollection services)
     {
         services.AddTransient<IHospitalUnitService, HospitalUnitService>();
-        services.AddTransient<ICategoryService, CategoryService>();
+        services.AddTransient<ICategoryRepository, CategoryRepository>();
         services.AddTransient<IManufacturerService, ManufacturerService>();
         services.AddTransient<IEmployeeService, EmployeeService>();
         services.AddTransient<IEquipmentService, EquipmentService>();

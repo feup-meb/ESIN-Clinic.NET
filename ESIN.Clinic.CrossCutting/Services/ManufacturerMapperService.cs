@@ -1,4 +1,4 @@
-﻿using ESIN.Clinic.CrossCutting.Manufacturers;
+﻿using ESIN.Clinic.CrossCutting.Features.Manufacturers;
 using ESIN.Clinic.Domain.Entities;
 using Microsoft.IdentityModel.Tokens;
 

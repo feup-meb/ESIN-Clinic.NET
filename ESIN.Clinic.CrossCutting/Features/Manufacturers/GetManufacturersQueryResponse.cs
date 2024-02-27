@@ -1,6 +1,6 @@
-﻿namespace ESIN.Clinic.CrossCutting.Manufacturers;
+﻿namespace ESIN.Clinic.CrossCutting.Features.Manufacturers;
 
-public class GetManufacturerByIdQueryResponse
+public class GetManufacturersQueryResponse
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;

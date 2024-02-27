@@ -2,7 +2,7 @@
 
 namespace ESIN.Clinic.Domain.Abstractions;
 
-public interface ICategoryService
+public interface ICategoryRepository
 {
     Task<List<Category>> GetCategories();
     Task<Category> GetCategoryById(int id);

@@ -1,4 +1,4 @@
-﻿using ESIN.Clinic.CrossCutting.Categories;
+﻿using ESIN.Clinic.CrossCutting.Features.Categories;
 using ESIN.Clinic.Domain.Entities;
 using Microsoft.IdentityModel.Tokens;
 
@@ -6,7 +6,7 @@ namespace ESIN.Clinic.CrossCutting.Services;
 
 public static class CategoryMapperService
 {
-    public static List<GetCategoriesQueryResponse> ToResponse(List<Category> categories)
+    public static List<GetCategoriesQueryResponse> MapToResponse(this List<Category> categories)
     {
         if(categories.IsNullOrEmpty())
             return [];
@@ -22,7 +22,7 @@ public static class CategoryMapperService
         return response;
     }
     
-    public static GetCategoryByIdQueryResponse ToResponse(Category category)
+    public static GetCategoryByIdQueryResponse MapToResponse(this Category category)
     {
         var response = new GetCategoryByIdQueryResponse
         {

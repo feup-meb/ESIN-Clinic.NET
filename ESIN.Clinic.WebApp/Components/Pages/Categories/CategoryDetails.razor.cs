@@ -1,18 +1,17 @@
-﻿using ESIN.Clinic.Domain.Entities;
+﻿using ESIN.Clinic.Application.Categories.Queries;
+using ESIN.Clinic.CrossCutting.Features.Categories;
 using Microsoft.AspNetCore.Components;
 
 namespace ESIN.Clinic.WebApp.Components.Pages.Categories;
 
 public partial class CategoryDetails
 {
-    [Parameter] public int? Id { get; set; }
-    private Category? item;
+    [Parameter] public int Id { get; set; }
+    private GetCategoryByIdQueryResponse? item;
     
     protected override async Task OnInitializedAsync()
-    {
-        if (Id == null)
-            return;
-        
-        item = await CategoryService.GetCategoryById((int)Id);
+    {   
+        var query = new GetCategoryByIdQuery(CategoryRepository);
+        item = await query.GetCategoryByIdAsync(Id);
     }
 }

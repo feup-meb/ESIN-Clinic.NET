@@ -1,6 +1,6 @@
-﻿namespace ESIN.Clinic.CrossCutting.HospitalUnits;
+﻿namespace ESIN.Clinic.CrossCutting.Features.HospitalUnits;
 
-public class GetHospitalUnitsQueryResponse
+public class GetHospitalUnitByIdQueryResponse
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;

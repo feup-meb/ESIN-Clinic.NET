@@ -1,17 +1,21 @@
-﻿using ESIN.Clinic.Domain.Abstractions;
+﻿using ESIN.Clinic.CrossCutting.Features.Categories;
+using ESIN.Clinic.CrossCutting.Services;
+using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Domain.Entities;
 
 namespace ESIN.Clinic.Application.Categories.Queries;
 
-public class GetCategoriesQuery(ICategoryService categoryService)
+public class GetCategoriesQuery(ICategoryRepository categoryRepository)
 {
-    public async Task<List<Category>> GetCategoriesAsync()
+    public async Task<List<GetCategoriesQueryResponse>> GetCategoriesAsync()
     {
-        var categories = await categoryService.GetCategories();
-
-        if (!categories.Any())
+        List<Category> categories = await categoryRepository.GetCategories();
+        
+        if (categories.Count == 0)
             throw new Exception("No categories found.");
 
-        return categories.ToList();
+        List<GetCategoriesQueryResponse> categoriesResult = categories.MapToResponse();
+        
+        return categoriesResult.ToList();
     }
 }

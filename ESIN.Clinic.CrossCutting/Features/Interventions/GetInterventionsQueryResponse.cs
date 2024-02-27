@@ -1,4 +1,4 @@
-﻿namespace ESIN.Clinic.CrossCutting.Interventions;
+﻿namespace ESIN.Clinic.CrossCutting.Features.Interventions;
 
 public class GetInterventionsQueryResponse
 {

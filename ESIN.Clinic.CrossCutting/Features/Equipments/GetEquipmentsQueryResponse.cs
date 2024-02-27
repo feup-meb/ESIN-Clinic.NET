@@ -1,6 +1,6 @@
-﻿namespace ESIN.Clinic.CrossCutting.Equipments;
+﻿namespace ESIN.Clinic.CrossCutting.Features.Equipments;
 
-public class GetEquipmentByIdQueryResponse
+public class GetEquipmentsQueryResponse
 {
     public int Id { get; set; }
     public string SerialNumber { get; set; } = string.Empty;

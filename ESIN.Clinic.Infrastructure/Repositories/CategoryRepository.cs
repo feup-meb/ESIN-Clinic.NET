@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ESIN.Clinic.Infrastructure.Repositories;
 
-public class CategoryService(ClinicDbContext dbContext) : ICategoryService
+public class CategoryRepository(ClinicDbContext dbContext) : ICategoryRepository
 {
     public async Task<List<Category>> GetCategories()
         => await dbContext.Categories.ToListAsync();

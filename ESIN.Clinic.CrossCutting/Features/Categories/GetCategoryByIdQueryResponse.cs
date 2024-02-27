@@ -1,9 +1,8 @@
-﻿namespace ESIN.Clinic.CrossCutting.Categories;
+﻿namespace ESIN.Clinic.CrossCutting.Features.Categories;
 
-public class GetCategoriesQueryResponse
+public class GetCategoryByIdQueryResponse
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; }= string.Empty;
 }
-

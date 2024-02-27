@@ -1,7 +1,6 @@
-﻿@page "/Categories/{Id:int?}"
-
+﻿@page "/Categories/{id:int}"
 @using ESIN.Clinic.Domain.Abstractions
-@inject ICategoryService CategoryService
+@inject ICategoryRepository CategoryRepository
 
 <h3>Category Detail</h3>
 

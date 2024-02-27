@@ -1,5 +1,4 @@
-﻿using ESIN.Clinic.Application;
-using ESIN.Clinic.Infrastructure;
+﻿using ESIN.Clinic.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,7 +11,7 @@ public static class DependencyInjection
         services
             .AddInfrastructure(configuration)
             .AddRepositoryServices()
-            .AddApplicationServices();
+            ;
         
         return services;
     }
