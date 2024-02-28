@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ESIN.Clinic.Infrastructure.Repositories;
 
-public class InterventionService(ClinicDbContext dbContext) : IInterventionService
+public class InterventionRepository(ClinicDbContext dbContext) : IInterventionRepository
 {
     // TODO: AsSplitQuery()?
     public async Task<List<Intervention>> GetInterventions()

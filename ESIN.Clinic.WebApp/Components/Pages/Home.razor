@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using ESIN.Clinic.Domain.Entities
 
 
 <PageTitle>Home</PageTitle>
@@ -8,37 +7,8 @@
 
 Welcome to your new app.
 
-<hr/>
 
-<p>Device @equipment!.Id</p>
-
-<ul>
-    <li>@equipment.Name</li>
-    <li>@equipment.Model</li>
-    <li>@equipment.Description</li>
-    <li>@equipment.Price</li>
-</ul>
 
 @code {
-    private Device? equipment;
-
-    protected override Task OnInitializedAsync()
-    {
-        equipment = new Device
-        {
-            SerialNumber = "abc1234",
-            Name = "My device",
-            Model = "Latest",
-            Description = "Ultra fast device",
-            AcquisitionDate = new DateTime(2023, 10, 5),
-            WarrantyDate = new DateTime(2024, 10, 5),
-            Price = 5_000,
-            IsActive = true,
-            ManufacturerId = 1,
-            DeviceCategoryId = 1,
-            HospitalUnitId = 1
-        };
-        
-        return Task.CompletedTask;
-    }
+    
 }

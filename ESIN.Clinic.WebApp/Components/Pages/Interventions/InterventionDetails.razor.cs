@@ -1,18 +1,17 @@
-﻿using ESIN.Clinic.Domain.Entities;
+﻿using ESIN.Clinic.Application.Interventions.Queries;
+using ESIN.Clinic.CrossCutting.Features.Interventions;
 using Microsoft.AspNetCore.Components;
 
 namespace ESIN.Clinic.WebApp.Components.Pages.Interventions;
 
 public partial class InterventionDetails
 {
-    [Parameter] public int? Id { get; set; }
-    private Intervention? item;
+    [Parameter] public int Id { get; set; }
+    private GetInterventionByIdQueryResponse? item;
 
     protected override async Task OnInitializedAsync()
     {
-        if (Id == null)
-            return;
-
-        item = await InterventionService.GetInterventionById((int)Id);
+        var query = new GetInterventionByIdQuery(InterventionRepository);
+        item = await query.GetInterventionByIdAsync(Id);
     }
 }

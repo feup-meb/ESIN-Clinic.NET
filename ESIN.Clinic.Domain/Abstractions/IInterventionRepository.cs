@@ -2,7 +2,7 @@
 
 namespace ESIN.Clinic.Domain.Abstractions;
 
-public interface IInterventionService
+public interface IInterventionRepository
 {
     Task<List<Intervention>> GetInterventions();
     Task<Intervention> GetInterventionById(int id);

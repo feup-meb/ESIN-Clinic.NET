@@ -6,7 +6,7 @@ namespace ESIN.Clinic.CrossCutting.Services;
 
 public static class InterventionMapperService
 {
-    public static List<GetInterventionsQueryResponse> ToResponse(List<Intervention> interventions)
+    public static List<GetInterventionsQueryResponse> MapToResponse(this List<Intervention> interventions)
     {
         if(interventions.IsNullOrEmpty())
             return [];
@@ -29,7 +29,7 @@ public static class InterventionMapperService
         return response;
     }
     
-    public static GetInterventionByIdQueryResponse ToResponse(Intervention intervention)
+    public static GetInterventionByIdQueryResponse MapToResponse(this Intervention intervention)
     {
         var response = new GetInterventionByIdQueryResponse
         {

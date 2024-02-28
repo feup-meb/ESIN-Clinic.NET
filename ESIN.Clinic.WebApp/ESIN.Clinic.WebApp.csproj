@@ -9,7 +9,6 @@
     <ItemGroup>
       <ProjectReference Include="..\ESIN.Clinic.Application\ESIN.Clinic.Application.csproj" />
       <ProjectReference Include="..\ESIN.Clinic.CrossCutting\ESIN.Clinic.CrossCutting.csproj" />
-      <ProjectReference Include="..\ESIN.Clinic.Domain\ESIN.Clinic.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
