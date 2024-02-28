@@ -1,17 +1,21 @@
-﻿using ESIN.Clinic.Domain.Abstractions;
+﻿using ESIN.Clinic.CrossCutting.Features.HospitalUnits;
+using ESIN.Clinic.CrossCutting.Services;
+using ESIN.Clinic.Domain.Abstractions;
 using ESIN.Clinic.Domain.Entities;
 
 namespace ESIN.Clinic.Application.HospitalUnits.Queries;
 
-public class GetHospitalUnitsQuery(IHospitalUnitService hospitalUnitService)
+public class GetHospitalUnitsQuery(IHospitalUnitRepository hospitalUnitRepository)
 {
-    public async Task<List<HospitalUnit>> GetHospitalUnitsAsync()
+    public async Task<List<GetHospitalUnitsQueryResponse>> GetHospitalUnitsAsync()
     {
-        var hospitalUnits = await hospitalUnitService.GetHospitalUnits();
+        List<HospitalUnit> hospitalUnits = await hospitalUnitRepository.GetHospitalUnits();
 
-        if (!hospitalUnits.Any())
+        if (hospitalUnits.Count == 0)
             throw new Exception("No hospital units found.");
 
-        return hospitalUnits.ToList();
+        List<GetHospitalUnitsQueryResponse> hospitalUnitsResult = hospitalUnits.MapToResponse();
+        
+        return hospitalUnitsResult.ToList();
     }
 }

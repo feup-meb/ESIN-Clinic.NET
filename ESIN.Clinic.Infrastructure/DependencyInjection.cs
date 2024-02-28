@@ -21,7 +21,7 @@ public static class DependencyInjection
     
     public static IServiceCollection AddRepositoryServices(this IServiceCollection services)
     {
-        services.AddTransient<IHospitalUnitService, HospitalUnitService>();
+        services.AddTransient<IHospitalUnitRepository, HospitalUnitRepository>();
         services.AddTransient<ICategoryRepository, CategoryRepository>();
         services.AddTransient<IManufacturerRepository, ManufacturerRepository>();
         services.AddTransient<IEmployeeService, EmployeeService>();

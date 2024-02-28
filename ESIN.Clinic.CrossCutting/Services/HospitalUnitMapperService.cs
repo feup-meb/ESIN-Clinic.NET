@@ -6,7 +6,7 @@ namespace ESIN.Clinic.CrossCutting.Services;
 
 public static class HospitalUnitMapperService
 {
-    public static List<GetHospitalUnitsQueryResponse> ToResponse(List<HospitalUnit> hospitalUnits)
+    public static List<GetHospitalUnitsQueryResponse> MapToResponse(this List<HospitalUnit> hospitalUnits)
     {
         if(hospitalUnits.IsNullOrEmpty())
             return [];
@@ -22,7 +22,7 @@ public static class HospitalUnitMapperService
         return response;
     }
     
-    public static GetHospitalUnitByIdQueryResponse ToResponse(HospitalUnit hospitalUnit)
+    public static GetHospitalUnitByIdQueryResponse MapToResponse(this HospitalUnit hospitalUnit)
     {
         var response = new GetHospitalUnitByIdQueryResponse
         {

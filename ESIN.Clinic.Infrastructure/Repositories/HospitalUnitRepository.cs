@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ESIN.Clinic.Infrastructure.Repositories;
 
-public class HospitalUnitService(ClinicDbContext dbContext) : IHospitalUnitService
+public class HospitalUnitRepository(ClinicDbContext dbContext) : IHospitalUnitRepository
 {
     public async Task<List<HospitalUnit>> GetHospitalUnits()
         => await dbContext.HospitalUnits.ToListAsync();
