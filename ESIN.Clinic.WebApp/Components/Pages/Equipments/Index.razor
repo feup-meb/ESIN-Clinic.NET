@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using Microsoft.IdentityModel.Tokens
 @using ESIN.Clinic.Domain.Abstractions
-@inject IEquipmentService EquipmentService;
+@inject IEquipmentRepository EquipmentRepository;
 
 <h3>Equipments</h3>
 
@@ -24,9 +24,9 @@ else
             </PropertyColumn>
             <PropertyColumn Property="@(c => c.Description)" Align="Align.Start" Class="py-2" Title="Room"/>
             <PropertyColumn Property="@(c => c.Model)" Align="Align.Start" Class="py-2" Title="Model"/>
-            <PropertyColumn Property="@(c => c.Category.Name)" Align="Align.Start" Class="py-2" Title="Category"/>
-            <PropertyColumn Property="@(c => c.Manufacturer.Name)" Align="Align.Start" Class="py-2" Title="Manufacturer"/>
-            <PropertyColumn Property="@(c => c.HospitalUnit.Name)" Align="Align.Start" Class="py-2" Title="Unit"/>
+            <PropertyColumn Property="@(c => c.CategoryName)" Align="Align.Start" Class="py-2" Title="Category"/>
+            <PropertyColumn Property="@(c => c.ManufacturerName)" Align="Align.Start" Class="py-2" Title="Manufacturer"/>
+            <PropertyColumn Property="@(c => c.HospitalUnitName)" Align="Align.Start" Class="py-2" Title="Unit"/>
             <PropertyColumn Property="@(c => c.IsActive)" Align="Align.Center" Class="py-2" Title="Active"/>
         </QuickGrid>
     </div>

@@ -10,7 +10,7 @@ public partial class CategoryDetails
     private GetCategoryByIdQueryResponse? item;
     
     protected override async Task OnInitializedAsync()
-    {   
+    {
         var query = new GetCategoryByIdQuery(CategoryRepository);
         item = await query.GetCategoryByIdAsync(Id);
     }

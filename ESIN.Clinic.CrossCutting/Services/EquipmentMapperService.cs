@@ -6,7 +6,7 @@ namespace ESIN.Clinic.CrossCutting.Services;
 
 public static class EquipmentMapperService
 {
-    public static List<GetEquipmentsQueryResponse> ToResponse(List<Equipment> equipments)
+    public static List<GetEquipmentsQueryResponse> MapToResponse(this List<Equipment> equipments)
     {
         if(equipments.IsNullOrEmpty())
             return [];
@@ -23,15 +23,15 @@ public static class EquipmentMapperService
             WarrantyDate = x.WarrantyDate,
             Price = x.Price,
             IsActive = x.IsActive,
-            Manufacturer = x.Manufacturer.Name,
-            Category = x.Category.Name,
-            HospitalUnit = x.HospitalUnit.Name
+            ManufacturerName = x.Manufacturer.Name,
+            CategoryName = x.Category.Name,
+            HospitalUnitName = x.HospitalUnit.Name
         }));
 
         return response;
     }
     
-    public static GetEquipmentByIdQueryResponse ToResponse(Equipment equipment)
+    public static GetEquipmentByIdQueryResponse MapToResponse(this Equipment equipment)
     {
         var response = new GetEquipmentByIdQueryResponse
         {
@@ -44,9 +44,9 @@ public static class EquipmentMapperService
             WarrantyDate = equipment.WarrantyDate,
             Price = equipment.Price,
             IsActive = equipment.IsActive,
-            Manufacturer = equipment.Manufacturer.Name,
-            Category = equipment.Category.Name,
-            HospitalUnit = equipment.HospitalUnit.Name
+            ManufacturerName = equipment.Manufacturer.Name,
+            CategoryName = equipment.Category.Name,
+            HospitalUnitName = equipment.HospitalUnit.Name
         };
 
         return response;

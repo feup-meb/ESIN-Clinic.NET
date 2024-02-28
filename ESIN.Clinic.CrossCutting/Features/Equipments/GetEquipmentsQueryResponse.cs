@@ -12,7 +12,7 @@ public class GetEquipmentsQueryResponse
     public double? Price { get; set; }
     public bool IsActive { get; set; }
     
-    public string Manufacturer { get; set; }
-    public string Category { get; set; }
-    public string HospitalUnit { get; set; }
+    public string ManufacturerName { get; set; }
+    public string CategoryName { get; set; }
+    public string HospitalUnitName { get; set; }
 }

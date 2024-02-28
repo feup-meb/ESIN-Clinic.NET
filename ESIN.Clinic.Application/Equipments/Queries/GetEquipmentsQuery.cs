@@ -1,17 +1,20 @@
-﻿using ESIN.Clinic.Domain.Abstractions;
-using ESIN.Clinic.Domain.Entities;
+﻿using ESIN.Clinic.CrossCutting.Features.Equipments;
+using ESIN.Clinic.CrossCutting.Services;
+using ESIN.Clinic.Domain.Abstractions;
 
 namespace ESIN.Clinic.Application.Equipments.Queries;
 
-public class GetEquipmentsQuery(IEquipmentService equipmentService)
+public class GetEquipmentsQuery(IEquipmentRepository equipmentRepository)
 {
-    public async Task<List<Equipment>> GetEquipmentsAsync()
+    public async Task<List<GetEquipmentsQueryResponse>> GetEquipmentsAsync()
     {
-        var equipments = await equipmentService.GetEquipments();
+        var equipments = await equipmentRepository.GetEquipments();
 
         if (!equipments.Any())
             throw new Exception("No equipments found.");
 
-        return equipments.ToList();
+        List<GetEquipmentsQueryResponse> equipmentsResult = equipments.MapToResponse();
+
+        return equipmentsResult.ToList();
     }
 }

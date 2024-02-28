@@ -25,7 +25,7 @@ public static class DependencyInjection
         services.AddTransient<ICategoryRepository, CategoryRepository>();
         services.AddTransient<IManufacturerRepository, ManufacturerRepository>();
         services.AddTransient<IEmployeeService, EmployeeService>();
-        services.AddTransient<IEquipmentService, EquipmentService>();
+        services.AddTransient<IEquipmentRepository, EquipmentRepository>();
         services.AddTransient<IInterventionService, InterventionService>();
         
         return services;

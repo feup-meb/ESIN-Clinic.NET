@@ -1,6 +1,6 @@
-﻿@page "/Equipments/{Id:int?}"
+﻿@page "/Equipments/{Id:int}"
 @using ESIN.Clinic.Domain.Abstractions
-@inject IEquipmentService EquipmentService;
+@inject IEquipmentRepository EquipmentRepository;
 
 <h3>EquipmentDetails</h3>
 
@@ -20,8 +20,8 @@
         <li><strong>WarrantyDate:</strong>@item.WarrantyDate</li>
         <li><strong>IsActive:</strong>@item.IsActive</li>
             
-        <li><strong>Manufacturer:</strong>@item.Manufacturer.Name</li>
-        <li><strong>Category:</strong>@item.Category.Name</li>
-        <li><strong>HospitalUnit:</strong>@item.HospitalUnit.Name</li>
+        <li><strong>Manufacturer:</strong>@item.ManufacturerName</li>
+        <li><strong>Category:</strong>@item.CategoryName</li>
+        <li><strong>HospitalUnit:</strong>@item.HospitalUnitName</li>
     </ul>
 }
