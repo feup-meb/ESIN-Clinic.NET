@@ -51,8 +51,6 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
         
         AddEmployees(dbCtx);
         AddEquipments(dbCtx);
-        dbCtx.SaveChanges();
-        
         AddInterventions(dbCtx);
     }
 
@@ -213,9 +211,9 @@ public class MigratorHostedService(IServiceProvider serviceProvider, IHostEnviro
                 StartDate = new DateTime(2018, 1, 10),
                 EndDate = new DateTime(2018, 1, 23),
                 EmployeeId = 3,
-                Employee = dbCtx.Employees.AsNoTracking().First(x => x.Id == 3),
+                Employee = dbCtx.Employees.First(x => x.Id == 3),
                 EquipmentId = 4,
-                Equipment = dbCtx.Equipments.AsNoTracking().First(x => x.Id == 4)
+                Equipment = dbCtx.Equipments.First(x => x.Id == 4)
             },
             new Intervention
             {
