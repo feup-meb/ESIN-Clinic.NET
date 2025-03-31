@@ -99,3 +99,11 @@ main {
     right: 0.75rem;
     top: 0.5rem;
 }
+
+::deep tr:has(> td:not(:empty)) > td {
+    display: table-cell;
+}
+
+::deep td:empty {
+    display: none;
+}
