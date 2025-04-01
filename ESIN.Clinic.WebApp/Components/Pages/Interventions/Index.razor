@@ -8,6 +8,10 @@
 
 <h3>Interventions</h3>
 
+<p>
+    <a href="interventions/create">Create New</a>
+</p>
+
 @if (items.IsNullOrEmpty())
 {
     <p>Loading data...</p>
@@ -15,20 +19,24 @@
 else
 {
     <div class="d-flex flex-wrap justify-content-center align-items-center py-2 col-md-8">
-        <QuickGrid Items="@FilteredItems" ItemKey="@(c => c.Id)" Pagination="@pagination" Class="table table-hover">
-            <PropertyColumn Property="@(c => c.InterventionType)" Align="Align.Center" Class="py-2" Title="Intervention Type"/>
-            <PropertyColumn Property="@(c => c.ReportDate)" Align="Align.Center" Class="py-2" Title="Report Date" Format="dd/MM/yyy"/>
-            <PropertyColumn Property="@(c => c.EquipmentName)" Sortable="true" Class="py-2" Title="Equipment Name">
+        <QuickGrid Items="@FilteredItems" ItemKey="@(intervention => intervention.Id)" Pagination="@pagination" Class="table table-hover">
+            <PropertyColumn Property="@(intervention => intervention.InterventionType)" Align="Align.Center" Class="py-2" Title="Intervention Type"/>
+            <PropertyColumn Property="@(intervention => intervention.ReportDate)" Align="Align.Center" Class="py-2" Title="Report Date" Format="dd/MM/yyy"/>
+            <PropertyColumn Property="@(intervention => intervention.EquipmentName)" Sortable="true" Class="py-2" Title="Equipment Name">
                 <ColumnOptions>
                     <div class="search-box">
                         <input type="search" autofocus @bind="@nameFilter" @bind:event="oninput" placeholder="Equipment name..."/>
                     </div>
                 </ColumnOptions>
             </PropertyColumn>
-            <PropertyColumn Property="@(c => c.StartDate)" Align="Align.Center" Class="py-2" Title="Start Date" Format="dd/MM/yyy"/>
-            <PropertyColumn Property="@(c => c.EndDate)" Align="Align.Center" Class="py-2" Title="End Date" Format="dd/MM/yyy"/>
-            <PropertyColumn Property="@(c => c.Observations)" Align="Align.Start" Class="py-2" Title="Observations"/>
-            <PropertyColumn Property="@(c => c.EmployeeName)" Align="Align.Start" Class="py-2" Title="Employee"/>
+            <PropertyColumn Property="@(intervention => intervention.StartDate)" Align="Align.Center" Class="py-2" Title="Start Date" Format="dd/MM/yyy"/>
+            <PropertyColumn Property="@(intervention => intervention.EndDate)" Align="Align.Center" Class="py-2" Title="End Date" Format="dd/MM/yyy"/>
+            <PropertyColumn Property="@(intervention => intervention.Observations)" Align="Align.Start" Class="py-2" Title="Observations"/>
+            <PropertyColumn Property="@(intervention => intervention.EmployeeName)" Align="Align.Start" Class="py-2" Title="Employee"/>
+
+            <TemplateColumn Context="intervention" Class="py-2">
+                <a href="@($"interventions/{intervention.Id}")">Details</a>
+            </TemplateColumn>
 
             @*     <TemplateColumn> *@
             @*         <FluentAnchor Href="#" Appearance="Appearance.Lightweight"> *@

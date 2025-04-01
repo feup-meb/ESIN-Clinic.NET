@@ -9,6 +9,10 @@
 
 <h3>Manufacturers</h3>
 
+<p>
+    <a href="manufacturers/create">Create New</a>
+</p>
+
 @if (items.IsNullOrEmpty())
 {
     <p>Loading data...</p>
@@ -16,18 +20,22 @@
 else
 {
     <div class="d-flex flex-wrap justify-content-center align-items-center py-2 col-md-8">
-        <QuickGrid Items="@FilteredItems" ItemKey="@(c => c.Id)" Pagination="@pagination" Class="table table-hover">
-            <PropertyColumn Property="@(c => c.Name)" Sortable="true" Class="py-2" Title="Name">
+        <QuickGrid Items="@FilteredItems" ItemKey="@(manufacturer => manufacturer.Id)" Pagination="@pagination" Class="table table-hover">
+            <PropertyColumn Property="@(manufacturer => manufacturer.Name)" Sortable="true" Class="py-2" Title="Name">
                 <ColumnOptions>
                     <div class="search-box">
                         <input type="search" autofocus @bind="@nameFilter" @bind:event="oninput" placeholder="Category name..."/>
                     </div>
                 </ColumnOptions>
             </PropertyColumn>
-            <PropertyColumn Property="@(c => c.Email)" Align="Align.Start" Class="py-2" Title="Email"/>
-            <PropertyColumn Property="@(c => c.PhoneNumber)" Align="Align.Start" Class="py-2" Title="Phone Number"/>
-            <PropertyColumn Property="@(c => c.MobilePhoneNumber)" Align="Align.Start" Class="py-2" Title="Mobile Number"/>
-            <PropertyColumn Property="@(c => c.Address)" Align="Align.Start" Class="py-2" Title="Address"/>
+            <PropertyColumn Property="@(manufacturer => manufacturer.Email)" Align="Align.Start" Class="py-2" Title="Email"/>
+            <PropertyColumn Property="@(manufacturer => manufacturer.PhoneNumber)" Align="Align.Start" Class="py-2" Title="Phone Number"/>
+            <PropertyColumn Property="@(manufacturer => manufacturer.MobilePhoneNumber)" Align="Align.Start" Class="py-2" Title="Mobile Number"/>
+            <PropertyColumn Property="@(manufacturer => manufacturer.Address)" Align="Align.Start" Class="py-2" Title="Address"/>
+
+            <TemplateColumn Context="manufacturer" Class="py-2">
+                <a href="@($"manufacturers/{manufacturer.Id}")">Details</a>
+            </TemplateColumn>
         </QuickGrid>
     </div>
 

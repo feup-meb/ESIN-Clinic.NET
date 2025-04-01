@@ -9,6 +9,10 @@
 
 <h3>Categories</h3>
 
+<p>
+    <a href="categories/create">Create New</a>
+</p>
+
 @if (items.IsNullOrEmpty())
 {
     <p>Loading data...</p>
@@ -16,15 +20,19 @@
 else
 {
     <div class="d-flex flex-wrap justify-content-center align-items-center py-2 col-md-4">
-        <QuickGrid Items="@FilteredItems" ItemKey="@(c => c.Id)" Class="table table-hover" Pagination="@pagination">
-            <PropertyColumn Property="@(c => c.Name)" Sortable="true" Class="py-2" Title="Name">
+        <QuickGrid Items="@FilteredItems" ItemKey="@(category => category.Id)" Class="table table-hover" Pagination="@pagination">
+            <PropertyColumn Property="@(category => category.Name)" Sortable="true" Class="py-2" Title="Name">
                 <ColumnOptions>
                     <div class="search-box">
                         <input type="search" autofocus @bind="@nameFilter" @bind:event="oninput" placeholder="Category name..." />
                     </div>
                 </ColumnOptions>
             </PropertyColumn>
-            <PropertyColumn Property="@(c => c.Description)" Align="Align.Start" Class="py-2" Title="Room" />
+            <PropertyColumn Property="@(category => category.Description)" Align="Align.Start" Class="py-2" Title="Room" />
+            
+            <TemplateColumn Context="category" Class="py-2">
+                <a href="@($"Categories/{category.Id}")">Details</a> 
+            </TemplateColumn>
         </QuickGrid>
     </div>
 
