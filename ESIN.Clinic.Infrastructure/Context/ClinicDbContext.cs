@@ -8,6 +8,7 @@ public class ClinicDbContext : DbContext
     public ClinicDbContext(DbContextOptions<ClinicDbContext> options)
     : base(options)
     {
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }
 
     public DbSet<Intervention> Interventions { get; set; }
