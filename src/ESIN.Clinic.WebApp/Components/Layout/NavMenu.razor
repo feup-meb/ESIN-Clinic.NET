@@ -1,0 +1,75 @@
+﻿<div class="top-row navbar navbar-dark">
+    <nav class="navbar mx-auto bg-body-tertiary">
+        <div class="container-fluid">
+            <a href="#">
+                <img src="/images/logo-header.png" alt="Logo" width="50" class="d-inline-block align-text-top">
+            </a>
+        </div>
+    </nav>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler"/>
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="interventions">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Interventions
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="units">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Hospital Units
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="equipments">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Equipments
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="categories">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Equipment Categories
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="manufacturers">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Manufacturers
+            </NavLink>
+        </div>
+
+        @* <FluentNavGroup Title="Interventions" *@
+        @*                 Icon="@(new Icons.Regular.Size20.Wrench())" ActiveClass="active"/> *@
+        @* <FluentNavGroup Title="Hospital Units" *@
+        @*                 Icon="@(new Icons.Regular.Size20.Building())"/> *@
+        @* <FluentNavGroup Title="Equipments" *@
+        @*                 Icon="@(new Icons.Regular.Size20.Tv())"/> *@
+        @* <FluentNavGroup Title="Equipment Categories"  *@
+        @*                 Icon="@(new Icons.Regular.Size20.Apps())"/> *@
+        @* <FluentNavGroup Title="Manufacturers" *@
+        @*                 Icon="@(new Icons.Regular.Size20.BuildingFactory())" Match="NavLinkMatch.Prefix"/> *@
+
+        @* <div class="nav-item px-3"> *@
+        @*     <NavLink class="nav-link" href="counter"> *@
+        @*         <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter *@
+        @*     </NavLink> *@
+        @* </div> *@
+        
+        @* <div class="nav-item px-3"> *@
+        @*     <NavLink class="nav-link" href="weather"> *@
+        @*         <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather *@
+        @*     </NavLink> *@
+        @* </div> *@
+        
+    </nav>
+</div>

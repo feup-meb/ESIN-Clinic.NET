@@ -1,0 +1,15 @@
+﻿@page "/Units/{Id:int}"
+@using ESIN.Clinic.Domain.Abstractions
+@inject IHospitalUnitRepository HospitalUnitRepository;
+
+<h3>HospitalUnitDetails</h3>
+
+<p>Hospital Unit <strong>@Id</strong></p>
+
+@if (item != null)
+{
+    <ul>
+        <li><strong>Name:</strong>&nbsp;@item.Name</li>
+        <li><strong>Room:</strong>&nbsp;@item.Room</li>
+    </ul>
+}

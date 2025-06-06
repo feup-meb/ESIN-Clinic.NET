@@ -1,0 +1,15 @@
+﻿@page "/Categories/{id:int}"
+@using ESIN.Clinic.Domain.Abstractions
+@inject ICategoryRepository CategoryRepository
+
+<h3>Category Detail</h3>
+
+<p>Category <strong>@Id</strong></p>
+
+@if (item != null)
+{
+    <ul>
+        <li><strong>Name:</strong>&nbsp;@item.Name</li>
+        <li><strong>Description:</strong>&nbsp;@item.Description</li>
+    </ul>
+}

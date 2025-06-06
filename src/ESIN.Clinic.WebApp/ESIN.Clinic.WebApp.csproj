@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>782dbb76-bd61-4414-bc5f-dfe122e57d17</UserSecretsId>
+  </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ESIN.Clinic.Application\ESIN.Clinic.Application.csproj" />
+      <ProjectReference Include="..\ESIN.Clinic.CrossCutting\ESIN.Clinic.CrossCutting.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="9.0.5" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+</Project>

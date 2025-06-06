@@ -1,0 +1,18 @@
+﻿@page "/Manufacturers/{Id:int}"
+@using ESIN.Clinic.Domain.Abstractions
+@inject IManufacturerRepository ManufacturerRepository
+
+<h3>Manufacturer Detail</h3>
+
+<p>Manufacturer <strong>@Id</strong></p>
+
+@if (item != null)
+{
+    <ul>
+        <li><strong>Name: </strong>@item.Name</li>
+        <li><strong>Email: </strong>@item.Email</li>
+        <li><strong>PhoneNumber: </strong>@item.PhoneNumber</li>
+        <li><strong>MobilePhoneNumber: </strong>@item.MobilePhoneNumber</li>
+        <li><strong>Address: </strong>@item.Address</li>
+    </ul>
+}
