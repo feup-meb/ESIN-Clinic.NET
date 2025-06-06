@@ -5,15 +5,15 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0ED15797-97E0-40D8-8F1D-14C1F9A12403}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.WebApp", "ESIN.Clinic.WebApp\ESIN.Clinic.WebApp.csproj", "{06C0A859-C94A-4B47-B73C-6DC385DA7544}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.WebApp", "src\ESIN.Clinic.WebApp\ESIN.Clinic.WebApp.csproj", "{06C0A859-C94A-4B47-B73C-6DC385DA7544}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Domain", "ESIN.Clinic.Domain\ESIN.Clinic.Domain.csproj", "{8022CE62-39AF-4A4C-AF77-48BED52B5137}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Domain", "src\ESIN.Clinic.Domain\ESIN.Clinic.Domain.csproj", "{8022CE62-39AF-4A4C-AF77-48BED52B5137}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Infrastructure", "ESIN.Clinic.Infrastructure\ESIN.Clinic.Infrastructure.csproj", "{7C8269DD-B2C3-46BE-8AB4-E8DE6195B838}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Infrastructure", "src\ESIN.Clinic.Infrastructure\ESIN.Clinic.Infrastructure.csproj", "{7C8269DD-B2C3-46BE-8AB4-E8DE6195B838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Application", "ESIN.Clinic.Application\ESIN.Clinic.Application.csproj", "{F062BF79-8C54-496C-AE93-E5B3A0F7A9AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.Application", "src\ESIN.Clinic.Application\ESIN.Clinic.Application.csproj", "{F062BF79-8C54-496C-AE93-E5B3A0F7A9AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.CrossCutting", "ESIN.Clinic.CrossCutting\ESIN.Clinic.CrossCutting.csproj", "{C1F70B38-864E-4E42-98A9-3F9C29812355}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIN.Clinic.CrossCutting", "src\ESIN.Clinic.CrossCutting\ESIN.Clinic.CrossCutting.csproj", "{C1F70B38-864E-4E42-98A9-3F9C29812355}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
